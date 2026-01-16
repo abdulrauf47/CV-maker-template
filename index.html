@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy CV Maker | Create Professional Resume Online</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Image/icon-removebg-preview.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="main_cv">
+        <nav class="main_navbar">
+            <div class="nav-center">Easy CV Maker</div>
+            <button type="submit" onclick="window.print()" class="download-btn">Download</button>
+        </nav>
+
+        <div class="main_left">
+            <form action="" id="cvForm">
+                <div class="div_1">
+                    <button type="submit" id="createCV" class="save-btn" onclick="cvform()">Save</button>
+                    <h3 class="nav_tile">Personal Information</h3>
+                </div>
+                <div class="form_group">
+                    <label for="full_name">Full Name:</label>
+                    <input type="text" minlength="3" maxlength="30" placeholder="Enter Full Name" id="full_name"
+                        required>
+                </div>
+
+                <div class="form_group">
+                    <label for="location">Location:</label>
+                    <input type="text" placeholder="Enter Location" id="location" maxlength="30" required>
+                </div>
+
+                <div class="form_group">
+                    <label for="address">Address:</label>
+                    <input type="text" maxlength="50" placeholder="Enter Address" id="address" required>
+                </div>
+
+                <div class="form_group">
+                    <label for="phone_no">Phone no.:</label>
+                    <input type="tel" id="phone_no" placeholder="03XXXXXXXXX" required pattern="03[0-9]{9}"
+                        minlength="11" maxlength="11">
+                </div>
+
+                <div class="form_group">
+                    <label for="email">Email :</label>
+                    <input type="email" placeholder="Enter Email Address" id="email" required>
+                </div>
+
+                <h3 class="nav_tile">Profile Summary</h3>
+                <div class="form_group">
+                    <label for="summary_section">Summary:</label>
+                    <textarea name="" rows="8" placeholder="Enter your Summary" id="summary_section" required
+                        minlength="50" maxlength="500"></textarea>
+                </div>
+
+                <div id="main_container">
+                    <div class="experience_block">
+
+                        <h3 class="nav_tile" id="exp_heading">Work Experience</h3>
+
+                        <div class="form_group">
+                            <label>Job Title:</label>
+                            <input type="text" placeholder="Enter You Experience" class="job_title" required
+                                minlength="5" maxlength="30">
+                        </div>
+
+                        <div class="form_group">
+                            <label>City , State:</label>
+                            <input type="text" placeholder="City , State" class="city_state" maxlength="30"
+                                minlength="5" required>
+                        </div>
+                        <div class="group_2">
+                            <label>Start & End Dates:</label>
+                            <div id="currentContainer_1" style="display:none; margin-top:5px;">
+                                <input type="checkbox" id="current_1" class="current_checkbox">
+                                <label for="current_1">Current Employ</label>
+                            </div>
+                            <br>
+                            <input type="month" placeholder="Start" id="start_start_1" required>
+                            <input type="month" placeholder="End" id="end_end_1" required>
+                        </div>
+
+
+                        <div class="form_group">
+                            <label>Description:</label>
+
+                            <div class="editor_box" id="edi">
+                                <div class="toolbar">
+                                    <button type="button" class="toolbar-btn" data-command="bold">
+                                        <i class="fa-solid fa-bold"></i>
+                                    </button>
+                                    <button type="button" class="toolbar-btn" data-command="insertUnorderedList">
+                                        <i class="fa-solid fa-list-ul"></i>
+                                    </button>
+                                    <button type="button" class="toolbar-btn" data-command="insertOrderedList">
+                                        <i class="fa-solid fa-list-ol"></i>
+                                    </button>
+                                </div>
+
+                                <div class="editor" contenteditable="true"></div>
+                                <span class="error-text" style="display:none;">Please fill description first</span>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <button type="button" onclick="addexp()" class="add_exp"> + Add Experience </button>
+
+                <h3 class="nav_tile">Academic Qualifications</h3>
+                <div class="form_group">
+                    <label for="degree">Degree:</label>
+                    <input type="text" placeholder="Enter You Degree" id="degree" required minlength="5" maxlength="50">
+                </div>
+
+                <div class="form_group">
+                    <label for="city">Organization:</label>
+                    <input type="text" placeholder="Organization" id="city" required minlength="5" maxlength="40">
+                </div>
+
+                <div class="form_group">
+                    <label for="obtain_mark">Obtain Marks %:</label>
+                    <input type="number" placeholder="Enter Percantage" id="obtain_mark" required min="0" max="100"
+                        step="0.01" title="Enter a percentage between 0 and 100">
+                </div>
+
+                <div class="group_2">
+                    <label for="start_start_2">Start & End Dates:</label><br>
+                    <input type="month" placeholder="Start" id="start_start_2" required>
+                    <input type="month" placeholder="End" id="end_end_2" required>
+                </div>
+
+                <h3 class="nav_tile">Technical Skills</h3>
+                <div class="form_group">
+                    <label for="skill_name">Skill Name:</label>
+                    <input type="text" id="skill_name" required>
+                </div>
+                <div class="form_group">
+                    <label for="category">Category:</label>
+                    <input type="text" placeholder="Html , Css , JavaScript" id="category" required>
+                </div>
+            </form>
+        </div>
+
+        <div class="main_rigth">
+            <div class="hero_section">
+                <div class="hero_left">
+                    <h1 id="cv_full_name" title="Name">ABDUL RAUF</h1>
+                    <h3 id="cv_location">Lahore, Pakistan</h3>
+                    <p id="cv_address">55/D Model Town Lahore, Pakistan</p>
+                    <p id="cv_phone_no">(+92)3000191730</p>
+                </div>
+                <div class="hero_right">
+                    <p id="cv_email">abdulrauf45@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="summary_section">
+                <b>Summary</b>
+            </div>
+            <div class="line">
+            </div>
+            <p id="cv_summary_section">
+                I am a motivated and detail-oriented Web Developer with a strong foundation in HTML, CSS, and
+                JavaScript. I enjoy building clean, responsive, and user-friendly websites. I am always eager to
+                learn new technologies and improve my skills by working on real projects. I can work well
+                independently and also as part of a team.
+                I am a motivated and detail-oriented Web Developer with a strong foundation in HTML, CSS, and
+                JavaScript. I
+                enjoy building clean, responsive, and user-friendly websites. I am always eager to learn new
+                technologies
+                and improve my skills by working on real projects. I can work well independently and also as part of a
+                team.
+            </p>
+
+            <!-- <div class="summary_section">
+                <b>Experience</b>
+            </div>
+            <div class="line">
+            </div> -->
+
+            <h4 id="cv_job_title">
+                <!-- Human Resource Manager -->
+            </h4>
+            <span id="cv_city_state">
+                <!-- Lahore, Pakistan | Performance: Good -->
+            </span>
+            <span id="cv_start_start_1" class="date_rigth"> </span>
+            <p id="cv_exp_description">
+                <!-- <li>Collaborated with team members and followed instructions to complete assigned tasks on time.</li>
+                <li>Learned how to convert simple designs into functional web pages.</li>
+                <li>Worked on form handling, basic DOM manipulation, and simple validations using JavaScript.</li> -->
+            </p>
+
+            <!-- <h4 id="cv_job_title">Workplace Culture & Compliance Specialist</h4>
+            <span id="cv_city_state">Lahore, Pakistan | Performance: Good</span>
+            <span id="cv_end_end_1" class="date_rigth">2022 – 2024 </span>
+            <ul>
+                <li>Practiced frontend development by creating small projects and portfolios.
+                    improved skills by learning from online tutorials and coding practice.</li>
+                <li>Worked on form handling, basic DOM manipulation, and simple validations using JavaScript. Improved
+                    revisions.</li>
+                <li>Assisted in building frontend pages and styling layouts using functional web pages</li>
+            </ul> -->
+
+
+            <div class="summary_section">
+                <b>Experience</b>
+            </div>
+            <div class="line"></div>
+            <div id="cv_experience_section">
+            </div>
+
+
+
+            <div class="summary_section">
+                <b>Education</b>
+            </div>
+
+            <div class="line">
+            </div>
+
+            <h4 id="cv_degree">Intermediate in Computer Science (ICS)</h4>
+            <span id="cv_city">Lahore, Pakistan</span>
+            | Marks:<span id="cv_obtain_mark">75</span>%
+            <span id="cv_dates_2" class="date_rigth"></span>
+            <ul></ul>
+            <div class="summary_section">
+                <b>Skills</b>
+            </div>
+
+            <div class="line">
+            </div>
+            <h4 id="cv_skill_name">Frontend Developer</h4>
+            <!-- <span class="date_rigth">Starting : 2025 </span> -->
+            <ul id="cv_category">
+                <li>Html</li>
+                <li>Css</li>
+                <li>Javascript</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
