@@ -245,12 +245,13 @@ body {
 
 .main-dropdown-1 {
     background-color: #fff;
-    position: absolute;
-    top: 100%;
-    left: -532px;
-    width: 1280px;
-    border-radius: 6px;
-    z-index: 99;
+    position: fixed;
+    top: 61px;
+    left: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    border-radius: 0 0 6px 6px;
+    z-index: 1100;
     display: none;
     /* display: flex; */
     border-bottom: 1px solid #eff7fe;
@@ -259,42 +260,42 @@ body {
 
 .main-dropdown-2 {
     background-color: #fff;
-    position: absolute;
-    top: 100%;
-    left: -685px;
-    width: 1280px;
-    border-radius: 6px;
-    z-index: 999;
+    position: fixed;
+    top: 61px;
+    left: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    border-radius: 0 0 6px 6px;
+    z-index: 1100;
     display: none;
-    /* display: flex; */
     border-bottom: 1px solid #eff7fe;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .main-dropdown-3 {
     background-color: #fff;
-    position: absolute;
-    top: 100%;
-    left: -832px;
-    width: 1280px;
-    border-radius: 6px;
-    z-index: 999;
+    position: fixed;
+    top: 61px;
+    left: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    border-radius: 0 0 6px 6px;
+    z-index: 1100;
     display: none;
-    /* display: flex; */
     border-bottom: 1px solid #eff7fe;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .main-dropdown-5 {
     background-color: #fff;
-    position: absolute;
-    top: 100%;
-    left: -1000px;
-    width: 1280px;
-    border-radius: 6px;
-    z-index: 999;
+    position: fixed;
+    top: 61px;
+    left: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    border-radius: 0 0 6px 6px;
+    z-index: 1100;
     display: none;
-    /* display: flex; */
     border-bottom: 1px solid #eff7fe;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -313,6 +314,60 @@ body {
 
 .dropdown-5:hover .main-dropdown-5 {
     display: flex;
+}
+
+/* keep dropdown open when hovering the dropdown itself */
+.main-dropdown-1:hover,
+.main-dropdown-2:hover,
+.main-dropdown-3:hover,
+.main-dropdown-5:hover {
+    display: flex;
+}
+
+/* invisible hover buffer under navbar links to prevent accidental closing
+   when moving the mouse from the link down to the dropdown */
+.dropdown-1::after,
+.dropdown-2::after,
+.dropdown-3::after,
+.dropdown-5::after {
+    content: "";
+    position: absolute;
+    left: -22%;
+    top: 100%;
+    width: 140%;
+    left: -20%;
+    height: 80px;
+    /* adjust if needed */
+    pointer-events: auto;
+    background: transparent;
+    z-index: 1050;
+    /* below dropdown panel (1100) so it doesn't block it */
+}
+
+/* top buffer and expanded side buffer (use ::before for top) */
+.dropdown-1::before,
+.dropdown-2::before,
+.dropdown-3::before,
+.dropdown-5::before {
+    content: "";
+    position: absolute;
+    left: -19px;
+    top: 0;
+    width: 130%;
+    height: 100%;
+    background: transparent;
+    pointer-events: auto;
+    z-index: 1050;
+}
+
+.dropdown-1 .dropdown-menu::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -40px;
+    width: 40px;
+    height: 100%;
+    background: transparent;
 }
 
 .dropdown-left-1 {
@@ -1130,7 +1185,7 @@ body {
     }
 
     .navbar {
-        width: 90%;
+        width: 92%;
         padding: 0 20px;
         height: 50px;
     }
@@ -1193,14 +1248,221 @@ body {
     .top-text .text {
         display: none;
     }
+
+    /* Mobile menu styles */
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-menu {
+        display: none;
+        /* hidden by default on mobile */
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 12px;
+        z-index: 1200;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+
+
+    .nav-menu li {
+        width: 100%;
+        padding: 12px 14px;
+        border-bottom: 1px solid #efefef;
+    }
+
+    /* Make dropdown panels static inside mobile menu and hidden until open */
+    .nav-menu li .main-dropdown-1,
+    .nav-menu li .main-dropdown-2,
+    .nav-menu li .main-dropdown-3,
+    .nav-menu li .main-dropdown-5 {
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        display: none !important;
+        border-bottom: none !important;
+    }
+
+    .nav-menu li.open>.main-dropdown-1,
+    .nav-menu li.open>.main-dropdown-2,
+    .nav-menu li.open>.main-dropdown-3,
+    .nav-menu li.open>.main-dropdown-5 {
+        display: block !important;
+    }
+
+    /* Reduce large left paddings used in desktop dropdowns */
+    .dropdown-left-1,
+    .dropdown-left-2,
+    .dropdown-left-3,
+    .dropdown-left-5 {
+        padding-left: 12px !important;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        z-index: 1200;
+    }
+
+    .nav-menu.mobile-open {
+        display: flex;
+    }
+
+    /* desktop hover disable */
+    .dropdown-1:hover .main-dropdown-1,
+    .dropdown-2:hover .main-dropdown-2,
+    .dropdown-3:hover .main-dropdown-3,
+    .dropdown-5:hover .main-dropdown-5 {
+        display: none;
+    }
+
+    /* dropdown inside mobile */
+    .nav-menu li .main-dropdown-1,
+    .nav-menu li .main-dropdown-2,
+    .nav-menu li .main-dropdown-3,
+    .nav-menu li .main-dropdown-5 {
+        display: none;
+        position: static;
+        width: 100%;
+    }
+
+    .nav-menu li.open>.main-dropdown-1,
+    .nav-menu li.open>.main-dropdown-2,
+    .nav-menu li.open>.main-dropdown-3,
+    .nav-menu li.open>.main-dropdown-5 {
+        display: block;
+    }
+
+    .top-text {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+        font-size: 20px;
+    }
+
+    .main-tool {
+        flex-direction: column;
+        gap: 16px;
+        padding: 0 12px;
+    }
+
+    .card-tool,
+    .card-tool-1 {
+        width: 100%;
+    }
+
+    .card-steps {
+        width: 100%;
+        overflow-x: auto;
+        display: flex;
+        gap: 12px;
+    }
+
+    .hired-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 10px;
+    }
+
+    .advice-box {
+        flex-direction: column;
+        gap: 12px;
+        margin: 0 12px 40px;
+        text-align: center;
+    }
+
+    .tested-resume .slider {
+        flex-direction: column;
+    }
+
+    .slider-cards {
+        width: 100%;
+        overflow-x: auto;
+        gap: 12px;
+    }
+
+    .slider-card {
+        min-width: 220px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .logos {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+    }
+
+    .logos i {
+        font-size: 20px;
+    }
+
 }
 
 
 
 @media (min-width: 769px) and (max-width: 960px) {
+
     .nav-menu {
         display: none;
     }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        z-index: 1200;
+    }
+
+    .nav-menu.mobile-open {
+        display: flex;
+    }
+
+    /* desktop hover disable */
+    .dropdown-1:hover .main-dropdown-1,
+    .dropdown-2:hover .main-dropdown-2,
+    .dropdown-3:hover .main-dropdown-3,
+    .dropdown-5:hover .main-dropdown-5 {
+        display: none;
+    }
+
+    /* dropdown inside mobile */
+    .nav-menu li .main-dropdown-1,
+    .nav-menu li .main-dropdown-2,
+    .nav-menu li .main-dropdown-3,
+    .nav-menu li .main-dropdown-5 {
+        display: none;
+        position: static;
+        width: 100%;
+    }
+
+    .nav-menu li.open>.main-dropdown-1,
+    .nav-menu li.open>.main-dropdown-2,
+    .nav-menu li.open>.main-dropdown-3,
+    .nav-menu li.open>.main-dropdown-5 {
+        display: block;
+    }
+
 
     .vertical-line {
         display: none;
@@ -1260,12 +1522,33 @@ body {
         border: 1px solid #eff7fe;
         font-size: 13px;
     }
+
+    .logos {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .logos i {
+        font-size: 25px;
+    }
 }
 
 @media (min-width: 960px) and (max-width: 1023px) {
     .hero-section {
         padding: 0 80px;
     }
+
+    .logos {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+    }
+
+    .logos i {
+        font-size: 28px;
+    }
+
 
     .hero-section-heading h1 {
         font-size: 40px;
@@ -1338,5 +1621,159 @@ body {
 
     .account-btn {
         margin-right: 12px;
+    }
+}
+
+/* Additional responsive tweaks for main content (leave navbar as-is) */
+@media (max-width: 768px) {
+    .main-hero-section {
+        padding: 0 12px;
+    }
+
+    .hero-section {
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .hero-section-left {
+        padding: 20px 8px;
+    }
+
+    .hero-section-heading h1 {
+        font-size: 28px;
+        line-height: 1.15;
+    }
+
+    .hero-section-img img {
+        width: 100%;
+        height: auto;
+        max-width: 420px;
+    }
+
+    .hero-section {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .hero-section-right {
+        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cards {
+        gap: 12px;
+        padding: 0 8px;
+    }
+
+    .card {
+        width: 46%;
+    }
+
+    .cards .card:nth-child(odd) {
+        margin-right: 4%;
+    }
+
+    .main-tool {
+        flex-direction: column;
+        gap: 16px;
+        padding: 0 12px;
+    }
+
+    .card-tool,
+    .card-tool-1 {
+        width: 93%;
+    }
+
+    .card-steps {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+    }
+
+    .card-steps li {
+        white-space: nowrap;
+    }
+
+    .advice-box {
+        margin: 0 12px 40px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .tested-resume .slider {
+        flex-direction: column;
+    }
+
+    .slider-cards {
+        width: 100%;
+        overflow-x: auto;
+        gap: 12px;
+    }
+
+    .slider-card {
+        min-width: 220px;
+        width: 72%;
+        margin: 0 auto;
+    }
+
+    .top-text {
+        padding: 0 12px;
+    }
+
+    .top-text-2 {
+        padding: 0 12px;
+    }
+
+    .dropdown-left-1,
+    .dropdown-left-2,
+    .dropdown-left-3,
+    .dropdown-left-5 {
+        padding-left: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section-heading h1 {
+        font-size: 22px;
+    }
+
+    .hero-section-left {
+        padding: 12px 6px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .cards {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .logo {
+        width: 22px;
+    }
+
+    .brand {
+        font-size: 16px;
+    }
+
+    .account-btn {
+        display: none;
+    }
+
+    .vertical-line {
+        display: none;
+    }
+
+    .hero-section-img img {
+        max-width: 320px;
+        margin-top: 12px;
+    }
+
+    .slider-card {
+        min-width: 180px;
+        width: 90%;
     }
 }
