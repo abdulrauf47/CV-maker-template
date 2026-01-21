@@ -457,21 +457,3 @@ document.getElementById("cvForm").addEventListener("submit", function (e) {
     cvform();           // updates the CV preview
 });
 
-// Mobile hamburger toggle: show nav links and switch icon to X
-document.addEventListener('DOMContentLoaded', function () {
-    const menuIcon = document.querySelector('.menu-icon');
-    const navMenu = document.querySelector('.nav-menu');
-    if (!menuIcon || !navMenu) return;
-
-    menuIcon.addEventListener('click', function (e) {
-        const opened = navMenu.classList.toggle('show');
-        if (opened) {
-            menuIcon.classList.add('open');
-            menuIcon.textContent = '✖';
-        } else {
-            menuIcon.classList.remove('open');
-            menuIcon.textContent = '☰';
-        }
-    });
-});
-
