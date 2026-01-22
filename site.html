@@ -386,46 +386,44 @@
 
         <div class="main-tool">
             <div class="card-steps">
-                <ul>
-                    <li class="active">
+                <ul id="stepsList">
+                    <li class="active" data-index="0">
                         <i class="fa-regular fa-message fa-lg"></i> 1. Get Noticed
                     </li>
-                    <li>
+                    <li data-index="1">
                         <i class="fa-solid fa-network-wired fa-lg"></i> 2. Get Hired
                     </li>
-                    <li>
+                    <li data-index="2">
                         <i class="fa-solid fa-chart-simple fa-lg"></i> 3. Get Paid More
                     </li>
-                    <li>
+                    <li data-index="3">
                         <i class="fa-solid fa-crown fa-lg"></i> 4. Get promoted
                     </li>
                 </ul>
             </div>
 
-            <div class="card-tool resume">
-                <h2>Resume Builder</h2>
-                <p>
-                    Build the resume that gets you hired.
-                    Finish a draft in 20 mins with “Recruiter-AI”.
-                </p>
-
-                <div class="resume-box">
-                    <img src="Image/resume-box-tool.png" alt="">
+            <div class="card-tool-container">
+                <div class="card-tool resume" id="toolBox1">
+                    <div class="tool-header">
+                        <i class=""></i>
+                        <h2></h2>
+                    </div>
+                    <p></p>
+                    <div class="resume-box">
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div class="card-tool resume" id="toolBox2">
+                    <div class="tool-header">
+                        <i class=""></i>
+                        <h2></h2>
+                    </div>
+                    <p></p>
+                    <div class="resume-box">
+                        <img src="" alt="">
+                    </div>
                 </div>
             </div>
-
-            <div class="card-tool resume">
-                <h2>Recruiter Match</h2>
-                <p>
-                    We close-match your resume and send it
-                    to top recruiters every week.
-                </p>
-
-                <div class="resume-box">
-                    <img src="Image/recruiter-box-tool.png" alt="">
-                </div>
-            </div>
-
         </div>
 
         <div class="hired-section">
@@ -459,25 +457,20 @@
                 <h4>Tested resume templates</h4>
                 <p>Use the templates recruiters like. Download to Word or PDF.</p>
             </div>
+            <div class="main-sliderr">
+                <div class="slider-container">
+                    <div class="slider-list" id="sliderList"></div>
+                </div>
 
-            <div class="slider">
-                <div class="slider-viewport">
-                    <button class="arrow left">◀</button>
-
-                    <div class="slider-cards" id="sliderCards">
-                        <!-- Cards will come from JavaScript -->
-                    </div>
-
-                    <button class="arrow right">▶</button>
+                <div class="controls">
+                    <button id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button id="nextBtn"><i class="fa-solid fa-angle-right"></i></button>
                 </div>
             </div>
-
-
-
-
         </div>
+    </div>
 
-        <script src="site.js"></script>
+    <script src="site.js"></script>
 </body>
 
 </html>

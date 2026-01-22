@@ -1,0 +1,48 @@
+const steps = [
+  [
+    { title: "Resume Builder", text: "Build the resume that gets you hired. We designed the builder with top employers Finish a draft 20 mins with “Recruiter-AI”.", img: "Image/resume-box-tool.png" },
+    { title: "Recruiter Match", text: "Recruiters come to us with roles they can’t fill. We close-match your resume and then send it to 50 recruiters a week.", img: "Image/recruiter-box-tool.png" }
+  ],
+  [
+    { title: "Job Board", text: "See every online job board in one place. We search the entire internet every day. If a role goes live, you won’t miss it.", img: "Image/job_board.png" },
+    { title: "Auto Apply", text: "Our team of experts apply for you. All they need is your resume and your target salary. interviews come by email.", img: "Image/auto_apply.png" }
+  ],
+  [
+    { title: "Interview Prep", text: "Practice the questions that get you hired. Choose from the world’s best employers and see instant feedback.", img: "Image/interview_prep.png" },
+    { title: "Salary Analyzer", text: "Get paid 7% more. Our salary analyzer shows you if your job offer is at the market rate. Always negotiate!", img: "Image/salary_analyzer.png" }
+  ],
+  [
+    { title: "Career Coaching", text: "Work 1-1 with an expert to expand your network, give better interviews and negotiate a higher salary.", img: "Image/career_coaching.png" },
+    { title: "Future Learn", text: "Future proof yourself. Get the courses you need to grow. Accredited, certified and respected by employers.", img: "Image/future_learn.png" }
+  ]
+];AbortController
+
+const stepsList = document.getElementById("stepsList").children;
+
+function updateContent(index) {
+  // Update active step
+  [...stepsList].forEach(li => li.classList.remove("active"));
+  stepsList[index].classList.add("active");
+
+  // Update box 1
+  const box1 = document.getElementById("toolBox1");
+  box1.querySelector("h2").textContent = steps[index][0].title;
+  box1.querySelector("p").textContent = steps[index][0].text;
+  box1.querySelector("img").src = steps[index][0].img;
+
+  // Update box 2
+  const box2 = document.getElementById("toolBox2");
+  box2.querySelector("h2").textContent = steps[index][1].title;
+  box2.querySelector("p").textContent = steps[index][1].text;
+  box2.querySelector("img").src = steps[index][1].img;
+}
+
+// Initialize first step
+updateContent(0);
+
+// Add click event
+[...stepsList].forEach((li, idx) => {
+  li.addEventListener("click", () => {
+    updateContent(idx);
+  });
+});
