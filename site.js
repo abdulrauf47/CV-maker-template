@@ -5,14 +5,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const navMenu = document.querySelector(".nav-menu");
   const dropdownItems = document.querySelectorAll(".nav-menu > li");
 
-  // ☰ menu toggle
   menuIcon.addEventListener("click", () => {
     navMenu.classList.toggle("mobile-open");
 
-    menuIcon.textContent = navMenu.classList.contains("mobile-open")
-      ? "✖"
-      : "☰";
-  });
+    if (navMenu.classList.contains("mobile-open")) {
+        document.body.classList.add("no-scroll"); // background stop
+        menuIcon.textContent = "✖";
+    } else {
+        document.body.classList.remove("no-scroll"); // background resume
+        menuIcon.textContent = "☰";
+    }
+});
+
 
   // dropdown toggle (mobile only)
   dropdownItems.forEach(item => {
