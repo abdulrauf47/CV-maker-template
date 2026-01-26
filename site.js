@@ -9,13 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
     navMenu.classList.toggle("mobile-open");
 
     if (navMenu.classList.contains("mobile-open")) {
-        document.body.classList.add("no-scroll"); // background stop
-        menuIcon.textContent = "✖";
+      document.body.classList.add("no-scroll"); // background stop
+      menuIcon.textContent = "✖";
     } else {
-        document.body.classList.remove("no-scroll"); // background resume
-        menuIcon.textContent = "☰";
+      document.body.classList.remove("no-scroll"); // background resume
+      menuIcon.textContent = "☰";
     }
-});
+  });
 
 
   // dropdown toggle (mobile only)
@@ -37,119 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// --- Carousel for Tested Resume Templates ---
-//   const viewport = document.querySelector('.slider-viewport');
-//   const track = document.querySelector('.slider-cards');
-//   const cards = Array.from(document.querySelectorAll('.slider-card'));
-
-//   if (viewport && track && cards.length) {
-//     let cardWidth = 0;
-//     let gap = 20;
-//     let viewportWidth = 0;
-//     let current = 1;
-
-//     function measure() {
-//       const r = cards[0].getBoundingClientRect();
-//       cardWidth = Math.round(r.width);
-//       const style = getComputedStyle(track);
-//       gap = parseInt(style.gap) || 20;
-//       viewportWidth = Math.round(viewport.getBoundingClientRect().width);
-//     }
-
-//     function update() {
-//       cards.forEach((c, i) => c.classList.toggle('center', i === current));
-//       const offset = (viewportWidth / 2) - (cardWidth / 2) - current * (cardWidth + gap);
-//       track.style.transform = `translateX(${offset}px)`;
-//     }
-
-//     // Initial layout
-//     measure();
-//     update();
-
-//     window.addEventListener('resize', () => {
-//       measure();
-//       update();
-//     });
-
-//     const btnLeft = document.querySelector('.arrow.left');
-//     const btnRight = document.querySelector('.arrow.right');
-
-//     if (btnLeft) btnLeft.addEventListener('click', () => {
-//       if (current > 0) { current--; update(); }
-//     });
-
-//     if (btnRight) btnRight.addEventListener('click', () => {
-//       if (current < cards.length - 1) { current++; update(); }
-//     });
-
-//     // Click a card to bring to center, or if center - trigger use-template
-//     track.addEventListener('click', (e) => {
-//       const cardEl = e.target.closest('.slider-card');
-//       if (!cardEl) return;
-//       const idx = parseInt(cardEl.dataset.index, 10);
-//       if (isNaN(idx)) return;
-//       if (idx !== current) {
-//         current = idx;
-//         update();
-//         return;
-//       }
-
-//       const useBtn = e.target.closest('.use-template');
-//       if (useBtn) {
-//         // Action when user clicks the center "Use this template" button
-//         // For now show a simple feedback; integrate with your app flow as needed.
-//         alert('Selected template #' + (current + 1));
-//       }
-//     });
-
-//     // keyboard navigation
-//     document.addEventListener('keydown', (e) => {
-//       if (e.key === 'ArrowLeft') btnLeft && btnLeft.click();
-//       if (e.key === 'ArrowRight') btnRight && btnRight.click();
-//     });
-//   }
-
-// });
-
-
-// const sliderCards = document.getElementById("sliderCards");
-
-// // how many cards you want
-// const totalCards = 20;
-
-// for (let i = 1; i <= totalCards; i++) {
-//     const card = document.createElement("div");
-//     card.className = "slider-card";
-//     card.setAttribute("data-index", i - 1);
-
-//     card.innerHTML = `
-//         <div class="card-inner">
-//             <h4 class="card-caption">Template ${i}</h4>
-//             <img src="Image/${i} CV.jpg" alt="CV ${i}">
-//             <button class="use-template">Use this template</button>
-//         </div>
-//     `;
-
-//     sliderCards.appendChild(card);
-// }
-
-// viewport.addEventListener('wheel', (e) => {
-//   e.preventDefault();
-
-//   if (e.deltaY > 0) {
-//     // scroll down → right
-//     if (current < cards.length - 1) {
-//       current++;
-//       update();
-//     }
-//   } else {
-//     // scroll up → left
-//     if (current > 0) {
-//       current--;
-//       update();
-//     }
-//   }
-// });
 
 
 const images = [
@@ -164,26 +51,6 @@ let currentIndex = 0;
 
 // Duplicate images for infinite scroll feel
 const sliderImages = [...images, ...images];
-
-function renderSlider() {
-  sliderList.innerHTML = "";
-  sliderImages.forEach((src, index) => {
-    const div = document.createElement("div");
-    div.classList.add("slider-item");
-    if (index === currentIndex + images.length) div.classList.add("center"); // center image
-    const img = document.createElement("img");
-    img.src = src;
-    div.appendChild(img);
-
-    const btn = document.createElement("button");
-    btn.textContent = "Use this template";
-    div.appendChild(btn);
-
-    sliderList.appendChild(div);
-  });
-
-  updateSliderPosition();
-}
 
 function updateSliderPosition() {
   const itemWidth = sliderList.children[0].offsetWidth + 20; // including margin
@@ -229,6 +96,10 @@ function renderSlider() {
     btn.textContent = "Use this template";
     div.appendChild(btn);
 
+    btn.addEventListener("click", () => {
+      window.location.href = "index.html"; // simple redirect
+    });
+
     // Click event: clicked image center me aaye
     img.addEventListener("click", () => {
       // clicked image index in main images array
@@ -245,7 +116,7 @@ function renderSlider() {
 
 // ---- MOBILE / TABLET DRAG SUPPORT ----
 function attachMobileDrag() {
-  if(window.innerWidth > 768) return; // desktop pe drag disabled
+  if (window.innerWidth > 768) return; // desktop pe drag disabled
 
   let isDragging = false;
   let startX = 0;
@@ -260,14 +131,14 @@ function attachMobileDrag() {
   });
 
   sliderList.addEventListener("touchmove", e => {
-    if(!isDragging) return;
+    if (!isDragging) return;
     const move = e.touches[0].pageX - startX;
     const itemWidth = sliderList.children[0].offsetWidth + 20;
-    if(move > itemWidth / 2) {
+    if (move > itemWidth / 2) {
       prevSlideDrag();
       startX = e.touches[0].pageX;
     }
-    if(move < -itemWidth / 2) {
+    if (move < -itemWidth / 2) {
       nextSlideDrag();
       startX = e.touches[0].pageX;
     }
@@ -276,13 +147,13 @@ function attachMobileDrag() {
 
 function nextSlideDrag() {
   currentIndex++;
-  if(currentIndex >= images.length) currentIndex = 0;
+  if (currentIndex >= images.length) currentIndex = 0;
   updateSliderPosition();
 }
 
 function prevSlideDrag() {
   currentIndex--;
-  if(currentIndex < 0) currentIndex = images.length - 1;
+  if (currentIndex < 0) currentIndex = images.length - 1;
   updateSliderPosition();
 }
 
@@ -353,3 +224,22 @@ updateContent(0);
     updateContent(idx);
   });
 });
+
+
+
+const uploadBtn = document.querySelector(".button-2");
+const fileInput = document.getElementById("resumeInput");
+
+uploadBtn.addEventListener("click", () => {
+  fileInput.click(); // open file picker
+});
+
+fileInput.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    alert("You selected: Successfully" );
+  }
+});
+
+
+

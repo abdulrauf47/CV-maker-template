@@ -46,6 +46,8 @@ function cvform() {
 
     document.getElementById("cv_skill_name").innerHTML = document.getElementById("skill_name").value;
 
+    
+
     let categoryInput = document.getElementById("category").value;
     let categoryList = categoryInput.split(",").map(item => item.trim());
     let cvCategoryUl = document.getElementById("cv_category");
@@ -107,9 +109,7 @@ function cvform() {
         `;
         }
     });
-  if (checkAllEditors()) {
-        cvform(); // agar sab editors filled ho to CV update karo
-    }
+
 
 }
 
@@ -289,13 +289,14 @@ function checkAllEditors() {
     return allValid; // true agar sab filled hai, false agar koi empty
 }
 
-// form submit ke liye
-// document.getElementById("cvForm").addEventListener("submit", function (e) {
-//     e.preventDefault(); // page reload na ho
-//     if (checkAllEditors()) {
-//         cvform(); // agar sab editors filled ho to CV update karo
-//     }
-// });
+// Form submit me CV update
+document.getElementById("cvForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // page reload na ho
+    if (checkAllEditors()) {
+        cvform(); // safe one-time call
+    }
+});
+
 
 // Har editor me typing par error hide kar do
 document.addEventListener('input', function (e) {
@@ -400,18 +401,24 @@ const monthNames = [
 ];
 
 function formatMonth(value) {
-    if (!value) return "";
+    if (!value || typeof value !== "string" || !value.includes("-")) return ""; // extra safe
+
     const parts = value.split("-");
+    if (parts.length < 2) return "";
+
     const year = parts[0];
     const monthIndex = parseInt(parts[1], 10) - 1;
-    const monthName = monthNames[monthIndex] || "";
+
+    if (isNaN(monthIndex) || monthIndex < 0 || monthIndex > 11) return "";
+
+    const monthName = monthNames[monthIndex];
     return `${monthName} ${year}`;
 }
 
 function updateEduDates() {
     let start = formatMonth(eduStart.value) || "Start";
     let end = formatMonth(eduEnd.value) || "End";
-    cvEduDates.textContent = `${start} | ${end}`;
+    cvEduDates.textContent = `${start} - ${end}`;
 }
 
 function isEditorEmpty(editor) {
