@@ -1,4 +1,19 @@
 
+const firebaseConfig = {
+  apiKey: "AIzaSyAtrB-e_EXU0ZgpZPiUfItn-0FgwhDHinE",
+  authDomain: "cv-login-project.firebaseapp.com",
+  projectId: "cv-login-project",
+  storageBucket: "cv-login-project.firebasestorage.app",
+  messagingSenderId: "54600693946",
+  appId: "1:54600693946:web:949721e9cd4f82fc856a83"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const menuIcon = document.querySelector(".menu-icon");
@@ -237,9 +252,141 @@ uploadBtn.addEventListener("click", () => {
 fileInput.addEventListener("change", (event) => {
   const file = event.target.files[0];
   if (file) {
-    alert("You selected: Successfully" );
+    alert("You selected: Successfully");
   }
 });
+
+
+const myAccountBtn = document.getElementById('myAccountBtn');
+const loginOverlay = document.getElementById('loginOverlay');
+const closeBtn = document.getElementById('closeBtn');
+const loginForm = document.getElementById('loginForm');
+const signupForm = document.getElementById('signupForm');
+const showSignup = document.getElementById('showSignup');
+const showLogin = document.getElementById('showLogin');
+const dropdowns = document.querySelectorAll('.dropdown');
+
+// Open login modal
+myAccountBtn.addEventListener('click', () => {
+  loginOverlay.style.display = 'flex';
+});
+
+// Close login modal
+closeBtn.addEventListener('click', () => loginOverlay.style.display = 'none');
+
+// Switch forms
+showSignup.addEventListener('click', () => {
+  loginForm.style.display = 'none';
+  signupForm.style.display = 'block';
+});
+showLogin.addEventListener('click', () => {
+  signupForm.style.display = 'none';
+  loginForm.style.display = 'block';
+});
+
+// Disable dropdown hover when modal is open
+// dropdowns.forEach(drop => {
+//   drop.addEventListener('mouseenter', () => {
+//     if (loginOverlay.style.display === 'flex') {
+//       drop.querySelector('.dropdown-content').style.display = 'none';
+//     }
+//   });
+// });
+
+// Login with Firebase
+document.getElementById('loginBtn').addEventListener('click', () => {
+  const email = document.getElementById('loginEmail').value;
+  const password = document.getElementById('loginPassword').value;
+  auth.signInWithEmailAndPassword(email, password)
+    .then(() => loginOverlay.style.display = 'none')
+    .catch(err => showPopup(err.message, 'error'));
+});
+
+// Signup with Firebase
+document.getElementById('signupBtn').addEventListener('click', () => {
+  const name = document.getElementById('signupName').value;
+  const email = document.getElementById('signupEmail').value;
+  const password = document.getElementById('signupPassword').value;
+  const rePass = document.getElementById('signupRePassword').value;
+  if (password !== rePass) {
+    showPopup('Passwords do not match!', 'error');
+    return;
+  }
+  auth.createUserWithEmailAndPassword(email, password)
+    .then(user => {
+      
+      user.user.updateProfile({ displayName: name });
+      loginOverlay.style.display = 'none';
+    })
+  showPopup('Account created successfully 🎉');
+});
+
+// Google Login
+document.getElementById('googleLogin').addEventListener('click', () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  auth.signInWithPopup(provider)
+    .then(() => loginOverlay.style.display = 'none')
+  showPopup('Firebase Domain Cannot Work!');
+});
+
+// Show logged-in user name on My Account button
+// auth.onAuthStateChanged(user => {
+//   if (user && user.displayName) {
+//     // Show only name
+//     myAccountBtn.textContent = `Hello, ${user.displayName}`;
+//   } else {
+//     // Default text if not logged in or name missing
+//     myAccountBtn.textContent = "My Account";
+//   }
+// });
+
+
+const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+const resetForm = document.getElementById('resetForm');
+const backToLogin = document.getElementById('backToLogin');
+
+forgotPasswordLink.addEventListener('click', (e) => {
+  e.preventDefault();
+  loginForm.style.display = 'none';
+  signupForm.style.display = 'none';
+  resetForm.style.display = 'block';
+});
+
+backToLogin.addEventListener('click', (e) => {
+  e.preventDefault();
+  resetForm.style.display = 'none';
+  loginForm.style.display = 'block';
+});
+
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  const email = document.getElementById('resetEmail').value;
+  auth.sendPasswordResetEmail(email)
+    .then(() => {
+      showPopup(`For testing, ${email}`);
+      resetForm.style.display = 'none';
+      loginForm.style.display = 'block';
+    })
+    .catch(err => alert(err.message));
+});
+
+
+function showPopup(message, type = 'success') {
+  const toast = document.getElementById('popupToast');
+  toast.textContent = message;
+
+  // Change color based on type
+  toast.style.backgroundColor = type === 'success' ? '#28a745' : '#dc3545'; // green/red
+
+  toast.classList.add('show');
+  toast.classList.remove('hidden');
+
+  // Hide after 3 seconds
+  setTimeout(() => {
+    toast.classList.remove('show');
+    toast.classList.add('hidden');
+  }, 3000);
+}
 
 
 

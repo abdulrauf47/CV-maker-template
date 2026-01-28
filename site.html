@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="site.css">
     <link rel="shortcut icon" href="Image/icon-removebg-preview.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
 </head>
 
 <body>
@@ -294,10 +297,45 @@
 
             <div class="nav-right">
                 <div class="menu-icon">☰</div>
-                <button class="account-btn">My Account</button>
+                <button id="myAccountBtn" class="account-btn">My Account</button>
             </div>
-
         </nav>
+
+        <div id="loginOverlay" class="overlay">
+            <div class="login-box">
+                <span id="closeBtn" class="close">&times;</span>
+
+                <!-- Login Form -->
+                <div id="loginForm">
+                    <h2>Sign In</h2>
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <p><a href="#" id="forgotPasswordLink">Forgot Password?</a></p>
+                    <button id="loginBtn" class="btn-2">Login</button>
+                    <div class="or">OR</div>
+                    <button id="googleLogin" class="btn-2 google">Sign in with Google</button>
+                    <p>Don't have an account? <span id="showSignup">Create Account</span></p>
+                </div>
+
+                <div id="resetForm" class="hidden">
+                    <h2>Reset Password</h2>
+                    <input type="email" id="resetEmail" placeholder="Enter your email" required>
+                    <button id="resetBtn" class="btn-2">Send Reset Email</button>
+                    <p><a href="#" id="backToLogin">Back to Login</a></p>
+                </div>
+
+                <!-- Signup Form -->
+                <div id="signupForm" class="hidden">
+                    <h2>Create Account</h2>
+                    <input type="text" id="signupName" placeholder="Full Name" required>
+                    <input type="email" id="signupEmail" placeholder="Email" required>
+                    <input type="password" id="signupPassword" placeholder="Password" required>
+                    <input type="password" id="signupRePassword" placeholder="Re-enter Password" required>
+                    <button id="signupBtn" class="btn-2">Sign Up</button>
+                    <p>Already have an account? <span id="showLogin">Sign In</span></p>
+                </div>
+            </div>
+        </div>
 
         <div class="main-hero-section">
             <div class="hero-section">
@@ -317,7 +355,7 @@
                     </div>
 
                     <div class="hero-section-button">
-                        <a href="index.html" target="_self" style="text-decoration: none;">
+                        <a href="#use-this-template" target="_self" style="text-decoration: none;">
                             <button class="button-1">Create my resume</button>
                         </a>
                         <button class="button-2" type="button">Upload my resume</button>
@@ -457,7 +495,7 @@
         </div>
         <div class="tested-resume">
             <div class="top-text-2">
-                <h4>Tested resume templates</h4>
+                <h4 id="use-this-template">Tested resume templates</h4>
                 <p>Use the templates recruiters like. Download to Word or PDF.</p>
             </div>
             <div class="main-sliderr">
@@ -484,7 +522,9 @@
                             No need to think much. We guide you through every step of the process. We show you what to
                             add, and where to add it it. It's clear and simple.
                         </p>
-                        <a href="index.html" style="text-decoration: none;"><h2>Create my Resume <i class="fa-solid fa-angle-right"></i></h2></a>
+                        <a href="index.html" style="text-decoration: none;">
+                            <h2>Create my Resume <i class="fa-solid fa-angle-right"></i></h2>
+                        </a>
                     </div>
                     <div class="feature-card-1-right">
                         <img src="Image/Contant-1.png" alt="">
@@ -560,9 +600,9 @@
                 </div>
             </div>
         </div>
+        </div>
 
-
-    </div>
+        <div id="popupToast" class="toast hidden"></div>
 
     <script src="site.js"></script>
 </body>
