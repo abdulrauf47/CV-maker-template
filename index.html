@@ -1,264 +1,750 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Template Slider</title>
+    <link rel="stylesheet" href="site.css" />
+    <link
+      rel="shortcut icon"
+      href="Image/icon-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Easy CV Maker | Create Professional Resume Online</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="Image/icon-removebg-preview.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
+  <body>
+    <div>
+      <nav class="navbar">
+        <div class="nav-left">
+          <img src="Image/icon-removebg-preview.png" class="logo" />
+          <span class="brand">Resume</span>
+        </div>
+        <div>
+          <ul class="nav-menu">
+            <li class="dropdown-1">
+              Resume Templates <i class="fa-solid fa-angle-down"></i>
 
-<body>
-    <div class="main_cv">
-        <nav class="main_navbar">
-            <div class="nav-center">Easy CV Maker</div>
-            <button type="submit" onclick="window.print()" class="download-btn">Download</button>
-        </nav>
+              <div class="main-dropdown-1">
+                <div class="dropdown-left-1">
+                  <h4>Resume Templates</h4>
 
-        <div class="main_left">
-            
-            <form action="" id="cvForm">
-                <div class="div_1">
-                    <button type="submit" id="createCV" class="save-btn" onclick="cvform()">Save</button>
-                    <h3 class="nav_tile">Personal Information</h3>
-                </div>
-                <div class="flexible">
-                <div class="form_group">
-                    <label for="full_name">Full Name:</label>
-                    <input type="text" minlength="3" maxlength="30" placeholder="Enter Full Name" id="full_name"
-                        required>
-                </div>
-
-                <div class="form_group">
-                    <label for="location">Location:</label>
-                    <input type="text" placeholder="Enter Location" id="location" maxlength="30" required>
-                </div>
-                </div>
-
-                <div class="flexible">
-                <div class="form_group">
-                    <label for="address">Address:</label>
-                    <input type="text" maxlength="50" placeholder="Enter Address" id="address" required>
-                </div>
-
-                <div class="form_group">
-                    <label for="phone_no">Phone no.:</label>
-                    <input type="tel" id="phone_no" placeholder="03XXXXXXXXX" required pattern="03[0-9]{9}"
-                        minlength="11" maxlength="11">
-                </div>
-                </div>
-
-                <div class="form_group">
-                    <label for="email">Email :</label>
-                    <input type="email"  placeholder="Enter Email Address" id="email" required>
-                </div>
-
-                <h3 class="nav_tile">Profile Summary</h3>
-                <div class="form_group">
-                    <label for="summary_section">Summary:</label>
-                    <textarea name="" rows="8" placeholder="Enter your Summary" id="summary_section" required
-                        minlength="50" maxlength="500"></textarea>
-                </div>
-
-                <div id="main_container">
-                    <div class="experience_block">
-
-                        <h3 class="nav_tile" id="exp_heading">Work Experience</h3>
-                        <div class="flexible">
-                        <div class="form_group">
-                            <label>Job Title:</label>
-                            <input type="text" placeholder="Enter You Experience" class="job_title" required
-                                minlength="5" maxlength="30">
-                        </div>
-
-                        <div class="form_group">
-                            <label>City , State:</label>
-                            <input type="text" placeholder="City , State" class="city_state" maxlength="30"
-                                minlength="5" required>
-                        </div>
-                        </div>
-                        <div class="group_2">
-                            <label>Start & End Dates:</label>
-                            <div id="currentContainer_1" style="display:none; margin-top:5px;">
-                                <input type="checkbox" id="current_1" class="current_checkbox">
-                                <label for="current_1">Current Employ</label>
-                            </div>
-                            <br>
-                            <input type="month" placeholder="Start" id="start_start_1" required>
-                            <input type="month" placeholder="End" id="end_end_1" required>
-                        </div>
-
-
-                        <div class="form_group">
-                            <label>Description:</label>
-
-                            <div class="editor_box" id="edi">
-                                <div class="toolbar">
-                                    <button type="button" class="toolbar-btn" data-command="bold">
-                                        <i class="fa-solid fa-bold"></i>
-                                    </button>
-                                    <button type="button" class="toolbar-btn" data-command="insertUnorderedList">
-                                        <i class="fa-solid fa-list-ul"></i>
-                                    </button>
-                                    <button type="button" class="toolbar-btn" data-command="insertOrderedList">
-                                        <i class="fa-solid fa-list-ol"></i>
-                                    </button>
-                                </div>
-
-                                <div class="editor" contenteditable="true"></div>
-                                <span class="error-text" style="display:none;">Please fill description first</span>
-                            </div>
-                        </div>
-
-
-
+                  <div class="main-dropdown-box-1">
+                    <div class="dropdown-left-item-1">
+                      <strong
+                        ><i class="fa-solid fa-file-circle-plus fa-lg"></i> Ats
+                        <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Optimise your resume and impress employers with these
+                        ATS-friendly designs.
+                      </p>
                     </div>
-                </div>
-                <button type="button" onclick="addexp()" class="add_exp"> + Add Experience </button>
 
-                <h3 class="nav_tile">Academic Qualifications</h3>
-                <div class="flexible">
-                <div class="form_group">
-                    <label for="degree">Degree:</label>
-                    <input type="text" placeholder="Enter You Degree" id="degree" required minlength="5" maxlength="50">
+                    <div class="dropdown-left-item-1">
+                      <strong
+                        ><i class="fa-brands fa-google fa-lg"></i> Google Docs
+                        <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Google Docs templates for fast, flexible editing—easy to
+                        update, share, and customize anywhere.
+                      </p>
+                    </div>
+
+                    <div class="dropdown-left-item-1">
+                      <strong
+                        ><i class="fa-solid fa-hand-point-up fa-lg"></i>Modern
+                        <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        A current and stylish feel for forward-thinking
+                        candidates in innovative fields
+                      </p>
+                    </div>
+
+                    <div class="dropdown-left-item-1">
+                      <strong
+                        ><i class="fa-solid fa-briefcase fa-lg fa-lg"></i>
+                        Professional <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Job-winning templates to showcase professionalism,
+                        dependability, and expertise
+                      </p>
+                    </div>
+
+                    <div class="dropdown-left-item-1">
+                      <strong
+                        ><i class="fa-solid fa-wand-magic-sparkles fa-lg"></i
+                        >Simple <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Clean, timeless templates with a classic balanced
+                        structure. A perfect basic canvas
+                      </p>
+                    </div>
+
+                    <div class="dropdown-left-item-1">
+                      <strong
+                        ><i class="fa-brands fa-wordpress-simple fa-lg"></i
+                        >Microsoft Word <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Microsoft Word templates, perfect for downloading,
+                        editing, and customizing offline.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="form_group">
-                    <label for="city">Organization:</label>
-                    <input type="text" placeholder="Organization" id="city" required minlength="5" maxlength="40">
+                <div class="dropdown-right-1">
+                  <div class="dropdown-right-item-1-1">
+                    <i
+                      class="fa-solid fa-file fa-xl"
+                      style="color: #1a91f0"
+                    ></i>
+                    <h4>
+                      Resume Builder
+                      <i
+                        class="fa-solid fa-angle-right"
+                        style="color: #74c0fc"
+                      ></i>
+                    </h4>
+                    <p>
+                      Build powerfull resumes in only 5 minutes with our easy to
+                      use Resume Builder and get hired faster
+                    </p>
+                  </div>
+
+                  <div class="dropdown-right-item-1-2">
+                    <i
+                      class="fa-regular fa-images fa-xl"
+                      style="color: #1a91f0"
+                    ></i>
+                    <h4>
+                      Get help from AI
+                      <i
+                        class="fa-solid fa-angle-right"
+                        style="color: #74c0fc"
+                      ></i>
+                    </h4>
+                    <p>Get ahead with our AI resume builder</p>
+                  </div>
                 </div>
+              </div>
+            </li>
+
+            <li class="dropdown-2">
+              Resume Examples <i class="fa-solid fa-angle-down"></i>
+              <div class="main-dropdown-2">
+                <div class="dropdown-left-2">
+                  <h4>Resume Example</h4>
+
+                  <div class="main-dropdown-box-2">
+                    <div class="dropdown-left-item-2">
+                      <strong
+                        ><i class="fa-solid fa-graduation-cap fa-lg"></i>
+                        Education <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Educate employers on your skills with a resume fit for
+                        any role in or outside the classroom
+                      </p>
+                    </div>
+
+                    <div class="dropdown-left-item-2">
+                      <strong
+                        ><i class="fa-solid fa-building-columns fa-lg"></i>
+                        Government <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Create a government resume that commands the attention
+                        of department recruiters
+                      </p>
+                    </div>
+
+                    <div class="dropdown-left-item-2">
+                      <strong
+                        ><i class="fa-brands fa-ubuntu fa-lg"></i>Engineering
+                        <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Build the foundation for success with a resume tailored
+                        to highlight your engineering expertise
+                      </p>
+                    </div>
+
+                    <div class="dropdown-left-item-2">
+                      <strong
+                        ><i class="fa-solid fa-house fa-lg"></i> Retail
+                        <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Showcase your retail experience with a resume that’s as
+                        well-crafted as your displays
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="form_group">
-                    <label for="obtain_mark">Obtain Marks %:</label>
-                    <input type="number" placeholder="Enter Percantage" id="obtain_mark" required min="0" max="100"
-                        step="0.01" title="Enter a percentage between 0 and 100">
+                <div class="dropdown-center-2">
+                  <h4>Most Popular</h4>
+                  <ul>
+                    <li class="li">Nurse</li>
+                    <li class="li">High School Student</li>
+                    <li class="li">Intership</li>
+                    <li class="li">Student</li>
+                    <li class="li">Accountant</li>
+                    <li class="all-exapmle">
+                      All Examples <i class="fa-solid fa-angle-right"></i>
+                    </li>
+                  </ul>
                 </div>
 
-                <div class="group_2">
-                    <label for="start_start_2">Start & End Dates:</label><br>
-                    <input type="month" placeholder="Start" id="start_start_2" required>
-                    <input type="month" placeholder="End" id="end_end_2" required>
+                <div class="dropdown-right-2">
+                  <div class="dropdown-right-item-2-1">
+                    <img src="Image/dropdown right.jpg" alt="" />
+                    <h4>500+ Free Resume Examples by industry</h4>
+                    <p>
+                      Use the expert guides and our resume builder to create a
+                      beautiful resume in minutes.
+                    </p>
+                    <ul>
+                      <li class="all-exapmle">
+                        Get Started now <i class="fa-solid fa-angle-right"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="dropdown-3">
+              Cover Letter <i class="fa-solid fa-angle-down"></i>
+              <div class="main-dropdown-3">
+                <div class="dropdown-left-3">
+                  <h4>Cover Letter Templates</h4>
+
+                  <div class="main-dropdown-box-3">
+                    <div class="dropdown-left-item-3">
+                      <strong
+                        ><i class="fa-brands fa-google fa-lg"></i> Google Docs
+                        <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Google Docs templates for fast, flexible editing—easy to
+                        update, share, and customize anywhere.
+                      </p>
+                    </div>
+
+                    <div class="dropdown-left-item-3">
+                      <strong
+                        ><i class="fa-brands fa-wordpress-simple fa-lg"></i
+                        >Microsoft Word <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Microsoft Word templates, perfect for downloading,
+                        editing, and customizing offline.
+                      </p>
+                    </div>
+
+                    <div class="dropdown-left-item-3">
+                      <strong
+                        ><i class="fa-solid fa-briefcase fa-lg fa-lg"></i>
+                        Professional <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Job-winning templates to showcase professionalism,
+                        dependability, and expertise
+                      </p>
+                    </div>
+
+                    <div class="dropdown-left-item-3">
+                      <strong
+                        ><i class="fa-solid fa-wand-magic-sparkles fa-lg"></i
+                        >Simple <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Clean, timeless templates with a classic balanced
+                        structure. A perfect basic canvas
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <h3 class="nav_tile">Technical Skills</h3>
-                <div class="flexible">
-                <div class="form_group">
-                    <label for="skill_name">Skill Name:</label>
-                    <input type="text" id="skill_name" required>
+                <div class="dropdown-center-3">
+                  <h4>Most Popular</h4>
+                  <ul>
+                    <li class="li">Nursing</li>
+                    <li class="li">Administrative Assistant</li>
+                    <li class="li">Intership</li>
+                    <li class="li">Graduate</li>
+                    <li class="li">Teacher</li>
+                    <li class="all-exapmle">
+                      All Examples <i class="fa-solid fa-angle-right"></i>
+                    </li>
+                  </ul>
                 </div>
-                <div class="form_group">
-                    <label for="category">Category:</label>
-                    <input type="text" placeholder="Html , Css , JavaScript" id="category" required>
+
+                <div class="dropdown-right-3">
+                  <div class="dropdown-right-item-3-1">
+                    <img src="Image/dropdown-2.png" alt="" />
+                    <h4>Cover Letter Builder</h4>
+                    <p>
+                      Cover Letter Builder Build professional cover letters in a
+                      few simple steps by using our free Cover Letter builder.
+                    </p>
+                    <ul>
+                      <li class="all-exapmle">
+                        Get Started now <i class="fa-solid fa-angle-right"></i>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
+              </div>
+            </li>
+
+            <li>FAQ</li>
+
+            <li class="dropdown-5">
+              Resources <i class="fa-solid fa-angle-down"></i>
+              <div class="main-dropdown-5">
+                <div class="dropdown-left-5">
+                  <h4>Resources</h4>
+
+                  <div class="main-dropdown-box-5">
+                    <div class="dropdown-left-item-5">
+                      <strong
+                        ><i class="fa-solid fa-circle-play fa-lg"></i> Video
+                        <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Video guides to help you write better resumes and land
+                        more interviews
+                      </p>
+                    </div>
+
+                    <div class="dropdown-left-item-5">
+                      <strong
+                        ><i class="fa-solid fa-podcast fa-lg"></i> Podcasts
+                        <i class="fa-solid fa-angle-right"></i
+                      ></strong>
+                      <p>
+                        Career podcasts to coach you through every step of your
+                        professional journey
+                      </p>
+                    </div>
+                  </div>
                 </div>
-            </form>
+
+                <div class="dropdown-center-5">
+                  <h4>Blog Categories</h4>
+                  <ul>
+                    <li class="li">Job Interview</li>
+                    <li class="li">Career</li>
+                    <li class="li">Cover Letter</li>
+                    <li class="li">Resume Help</li>
+                  </ul>
+                </div>
+
+                <div class="dropdown-right-5">
+                  <div class="dropdown-right-item-5-1">
+                    <h4>Lastest</h4>
+                    <img src="Image/dropdown right 5.jpg" alt="" />
+                    <ul class="inline-list">
+                      <li>Post</li>
+                      <li>Career</li>
+                      <li>9 min</li>
+                    </ul>
+                    <p>
+                      Survey Reveals the Employers American Trust Most to
+                      Protect Human Jobs in the Age of AI
+                    </p>
+                    <ul style="padding: 0; list-style-type: none">
+                      <li class="all-exapmle">
+                        Get Started now <i class="fa-solid fa-angle-right"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
+        <div class="vertical-line"></div>
 
-        <div class="main_rigth">
-            <div class="hero_section">
-                <div class="hero_left">
-                    <h1 id="cv_full_name" title="Name">ABDUL RAUF</h1>
-                    <h3 id="cv_location">Lahore, Pakistan</h3>
-                    <p id="cv_address">55/D Model Town Lahore, Pakistan</p>
-                    <p id="cv_phone_no">(+92)3000191730</p>
-                </div>
-                <div class="hero_right">
-                    <p id="cv_email">abdulrauf45@gmail.com</p>
-                </div>
-            </div>
+        <div class="nav-right">
+          <div class="menu-icon">☰</div>
+          <button id="myAccountBtn" class="account-btn">My Account</button>
+        </div>
+      </nav>
 
-            <div class="summary_section">
-                <b>Summary</b>
-            </div>
-            <div class="line">
-            </div>
-            <p id="cv_summary_section">
-                I am a motivated and detail-oriented Web Developer with a strong foundation in HTML, CSS, and
-                JavaScript. I enjoy building clean, responsive, and user-friendly websites. I am always eager to
-                learn new technologies and improve my skills by working on real projects. I can work well
-                independently and also as part of a team.
-                I am a motivated and detail-oriented Web Developer with a strong foundation in HTML, CSS, and
-                JavaScript. I
-                enjoy building clean, responsive, and user-friendly websites. I am always eager to learn new
-                technologies
-                and improve my skills by working on real projects. I can work well independently and also as part of a
-                team.
-            </p>
+      <!-- LOGIN / SIGNUP OVERLAY -->
+      <div id="loginOverlay" class="overlay">
+        <div class="login-box">
+          <span id="closeBtn" class="close">&times;</span>
 
-            <!-- <div class="summary_section">
-                <b>Experience</b>
-            </div>
-            <div class="line">
-            </div> -->
-
-            <h4 id="cv_job_title">
-                <!-- Human Resource Manager -->
-            </h4>
-            <span id="cv_city_state">
-                <!-- Lahore, Pakistan | Performance: Good -->
+          <!-- Login Form -->
+          <div id="loginForm">
+            <h2>Sign In</h2>
+            <input type="email" id="loginEmail" placeholder="Email" required />
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="Password"
+              required
+            />
+            <span
+              class="toggle-password"
+              onclick="togglePassword('loginPassword', this)"
+            >
+              <i class="fa-solid fa-eye fa-2xs" style="color: #000000"></i>
             </span>
-            <span id="cv_start_start_1" class="date_rigth"> </span>
-            <p id="cv_exp_description">
-                <!-- <li>Collaborated with team members and followed instructions to complete assigned tasks on time.</li>
-                <li>Learned how to convert simple designs into functional web pages.</li>
-                <li>Worked on form handling, basic DOM manipulation, and simple validations using JavaScript.</li> -->
+            <p><a href="#" id="forgotPasswordLink">Forgot Password?</a></p>
+            <button id="loginBtn" class="btn-2">Login</button>
+            <div class="or">OR</div>
+            <button id="googleLogin" class="btn-2 google">
+              Sign in with Google
+            </button>
+            <p>
+              Don't have an account? <span id="showSignup">Create Account</span>
             </p>
+          </div>
 
-            <!-- <h4 id="cv_job_title">Workplace Culture & Compliance Specialist</h4>
-            <span id="cv_city_state">Lahore, Pakistan | Performance: Good</span>
-            <span id="cv_end_end_1" class="date_rigth">2022 – 2024 </span>
-            <ul>
-                <li>Practiced frontend development by creating small projects and portfolios.
-                    improved skills by learning from online tutorials and coding practice.</li>
-                <li>Worked on form handling, basic DOM manipulation, and simple validations using JavaScript. Improved
-                    revisions.</li>
-                <li>Assisted in building frontend pages and styling layouts using functional web pages</li>
-            </ul> -->
+          <!-- Signup Form -->
+          <div id="signupForm" class="hidden">
+            <h2>Create Account</h2>
+            <input
+              type="text"
+              id="signupName"
+              placeholder="Full Name"
+              required
+            />
+            <input type="email" id="signupEmail" placeholder="Email" required />
+            <input
+              type="password"
+              id="signupPassword"
+              placeholder="Password"
+              required
+            />
+            <input
+              type="password"
+              id="signupRePassword"
+              placeholder="Re-enter Password"
+              required
+            />
+            <button id="signupBtn" class="btn-2">Sign Up</button>
+            <p>Already have an account? <span id="showLogin">Sign In</span></p>
+          </div>
 
-
-            <div class="summary_section">
-                <b>Experience</b>
-            </div>
-            <div class="line"></div>
-            <div id="cv_experience_section">
-            </div>
-
-
-
-            <div class="summary_section">
-                <b>Education</b>
-            </div>
-
-            <div class="line">
-            </div>
-
-            <h4 id="cv_degree">Intermediate in Computer Science (ICS)</h4>
-            <span id="cv_city">Lahore, Pakistan</span>
-            | Marks:<span id="cv_obtain_mark">75</span>%
-            <span id="cv_dates_2" class="date_rigth"></span>
-            <ul></ul>
-            <div class="summary_section">
-                <b>Skills</b>
-            </div>
-
-            <div class="line">
-            </div>
-            <h4 id="cv_skill_name">Frontend Developer</h4>
-            <!-- <span class="date_rigth">Starting : 2025 </span> -->
-            <ul id="cv_category">
-                <li>Html</li>
-                <li>Css</li>
-                <li>Javascript</li>
-            </ul>
+          <!-- Reset Password Form -->
+          <div id="resetForm" class="hidden">
+            <h2>Reset Password</h2>
+            <input
+              type="email"
+              id="resetEmail"
+              placeholder="Enter your email"
+              required
+            />
+            <button id="resetBtn" class="btn-2">Send Link</button>
+            <p><a href="#" id="backToLogin">Back to Login</a></p>
+          </div>
         </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+      </div>
 
+      <div class="main-hero-section">
+        <div class="hero-section">
+          <div class="hero-section-left">
+            <div class="hero-section-heading">
+              <h1>
+                This resume builder gets you
+                <span style="color: #1a91f0">hired faster</span>
+              </h1>
+            </div>
+
+            <div class="hero-section-span-1">
+              <span> Only 2% of resumes win. Yours will be one of them. </span>
+            </div>
+
+            <div class="hero-section-button">
+              <a
+                href="#use-this-template"
+                target="_self"
+                style="text-decoration: none"
+              >
+                <button class="button-1">Create my resume</button>
+              </a>
+              <button class="button-2" type="button">Upload my resume</button>
+              <input type="file" id="resumeInput" style="display: none" />
+            </div>
+
+            <div class="hero-section-span-2">
+              <span
+                ><i
+                  class="fa-regular fa-circle-check fa-lg"
+                  style="color: #63e6be"
+                ></i
+                ><span style="font-weight: 600"> 39%</span> more likely to land
+                the job</span
+              >
+            </div>
+
+            <div class="hero-section-span-3">
+              <span>
+                <i class="fa-solid fa-star fa-lg" style="color: #63e6be"></i
+                ><span style="font-weight: 600">Trustpilot</span> 4.4 out of 5 |
+                37,389 reviews</span
+              >
+            </div>
+          </div>
+          <div class="hero-section-right">
+            <div class="hero-section-img">
+              <img
+                src="Image/typing-hero-19c17dfac3e22fdc206c80e7f4d80e2c2feaa5cc2ac34f29257ec4da6ec6c722.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="stats-section">
+        <div class="top-text">
+          <span class="icon"
+            ><i class="fa-solid fa-recycle fa-xl" style="color: #74c0fc"></i
+          ></span>
+          <span class="count">63,834</span>
+          <span class="text">resumes created today</span>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">✨</div>
+            <h3>A draft in 10 mins</h3>
+            <p>The AI builder is 10x faster than doing on your own.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">A+</div>
+            <h3>Zero mistakes</h3>
+            <p>Don't stress over typos; you'll sound great!</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🎯</div>
+            <h3>ATS templates</h3>
+            <p>Your resume will be 100% compliant. Recruiters will see you.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">$</div>
+            <h3>Get paid 7% more</h3>
+            <p>We can help you negotiate a higher starting salary.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-text">
+        <h4>Every tool you need is here...</h4>
+      </div>
+
+      <div class="main-tool">
+        <div class="card-steps">
+          <ul id="stepsList">
+            <li class="active" data-index="0">
+              <i class="fa-regular fa-message fa-lg"></i> 1. Get Noticed
+            </li>
+            <li data-index="1">
+              <i class="fa-solid fa-network-wired fa-lg"></i> 2. Get Hired
+            </li>
+            <li data-index="2">
+              <i class="fa-solid fa-chart-simple fa-lg"></i> 3. Get Paid More
+            </li>
+            <li data-index="3">
+              <i class="fa-solid fa-crown fa-lg"></i> 4. Get promoted
+            </li>
+          </ul>
+        </div>
+
+        <div class="card-tool-container">
+          <div class="card-tool resume" id="toolBox1">
+            <div class="tool-header">
+              <i class=""></i>
+              <h2></h2>
+            </div>
+            <p></p>
+            <div class="resume-box">
+              <img src="" alt="" />
+            </div>
+          </div>
+          <div class="card-tool resume" id="toolBox2">
+            <div class="tool-header">
+              <i class=""></i>
+              <h2></h2>
+            </div>
+            <p></p>
+            <div class="resume-box">
+              <img src="" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hired-section">
+        <p>Our candidates<br />have been hired at:</p>
+
+        <div class="logos">
+          <img src="Image/Booking.com-Logo.wine.svg" alt="" />
+          <img src="Image/Apple_Inc.-Logo.wine.svg" alt="" />
+          <img src="Image/DHL-Logo.wine.svg" alt="" />
+          <img src="Image/Amazon_(company)-Logo.wine.svg" alt="" />
+          <img src="Image/American_Express-Logo.wine.svg" alt="" />
+          <img src="Image/Accenture-Logo.wine.svg" alt="" />
+          <img src="Image/The_Prince's_Trust-Logo.wine.svg" alt="" />
+        </div>
+      </div>
+
+      <div class="advice-box">
+        <div class="avatars">
+          <img src="Image/avatar.png" alt="" />
+        </div>
+
+        <div class="text-2">
+          <h2>Need some advice?</h2>
+          <p>
+            98% of our coaching clients receive a job offer within 12 weeks.
+          </p>
+        </div>
+
+        <a href="#" class="btn">Find your coach</a>
+      </div>
+      <div class="tested-resume">
+        <div class="top-text-2">
+          <h4 id="use-this-template">Tested resume templates</h4>
+          <p>Use the templates recruiters like. Download to Word or PDF.</p>
+        </div>
+        <div class="main-sliderr">
+          <div class="slider-container">
+            <div class="slider-list" id="sliderList"></div>
+          </div>
+
+          <div class="controls">
+            <button id="prevBtn">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button id="nextBtn">
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="top-text-2">
+        <h4>Way beyond a resume builder...</h4>
+      </div>
+      <div class="feature-wrapper">
+        <div class="feature-track">
+          <div class="feature-card-1">
+            <div class="feature-card-1-left">
+              <span class="tag">✨ AI-powered</span>
+              <h3>Step-by-step guidance</h3>
+              <p>
+                No need to think much. We guide you through every step of the
+                process. We show you what to add, and where to add it it. It's
+                clear and simple.
+              </p>
+              <a href="make.html" style="text-decoration: none">
+                <h2>
+                  Create my Resume <i class="fa-solid fa-angle-right"></i>
+                </h2>
+              </a>
+            </div>
+            <div class="feature-card-1-right">
+              <img src="Image/Contant-1.png" alt="" />
+            </div>
+          </div>
+          <div class="feature-card-2">
+            <div class="feature-card-2-left">
+              <span class="tag">✨ AI-powered</span>
+              <h3>AI writes for you</h3>
+              <p>
+                Speak into the mic and the AI fixes mistakes. Stuck? Click to
+                add phrases that sound professional.
+              </p>
+            </div>
+            <div class="feature-card-2-right">
+              <img src="Image/Contant-2.png" alt="" />
+            </div>
+          </div>
+          <div class="feature-card-3">
+            <div class="feature-card-3-left">
+              <span class="tag">✨ AI-powered</span>
+              <h3>Instant cover letters</h3>
+              <p>
+                Instant cover letters Just paste a job link. We create a
+                matching cover letter. using your resume. You're done in 2 mins!
+                Purpose built to impress recruiters.
+              </p>
+            </div>
+            <div class="feature-card-3-right">
+              <img src="Image/Contant-3.png" alt="" />
+            </div>
+          </div>
+          <div class="feature-card-4">
+            <div class="feature-card-4-left">
+              <h3>Paste any job link</h3>
+              <p>
+                Simple and effective. We have the formula that works for
+                recruiters. Just paste the job description and we pre-build your
+                resume to match.
+              </p>
+              <h2>Trailer my resume <i class="fa-solid fa-angle-right"></i></h2>
+            </div>
+            <div class="feature-card-4-right">
+              <img src="Image/Contant-4.png" alt="" />
+            </div>
+          </div>
+          <div class="feature-card-5">
+            <div class="feature-card-5-left">
+              <div class="feature-card-4-left">
+                <h3>Recruiter Match</h3>
+                <p>
+                  Recruiters come to us with roles they can't fill. We can match
+                  your resume with up to 50 recruiters a week. When there's a
+                  match, they will contact you via email.
+                </p>
+                <h2>
+                  Start distributing <i class="fa-solid fa-angle-right"></i>
+                </h2>
+              </div>
+            </div>
+            <div class="feature-card-5-right">
+              <img src="Image/Contant-5.png" alt="" />
+            </div>
+          </div>
+          <div class="feature-card-6">
+            <div class="feature-card-6-left">
+              <h3>Instant cover letters</h3>
+              <p>
+                Instant cover letters Just paste a job link. We create a
+                matching cover letter. using your resume. You're done in 2 mins!
+                Purpose built to impress recruiters.
+              </p>
+            </div>
+            <div class="feature-card-6-right">
+              <img src="Image/Contant-6.png" alt="" srcset="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popupToast" class="toast hidden"></div>
+
+    <script src="site.js"></script>
+  </body>
 </html>

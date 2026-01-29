@@ -1,21 +1,17 @@
-
 const firebaseConfig = {
   apiKey: "AIzaSyAtrB-e_EXU0ZgpZPiUfItn-0FgwhDHinE",
   authDomain: "cv-login-project.firebaseapp.com",
   projectId: "cv-login-project",
   storageBucket: "cv-login-project.firebasestorage.app",
   messagingSenderId: "54600693946",
-  appId: "1:54600693946:web:949721e9cd4f82fc856a83"
+  appId: "1:54600693946:web:949721e9cd4f82fc856a83",
 };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
-
   const menuIcon = document.querySelector(".menu-icon");
   const navMenu = document.querySelector(".nav-menu");
   const dropdownItems = document.querySelectorAll(".nav-menu > li");
@@ -32,33 +28,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-
   // dropdown toggle (mobile only)
-  dropdownItems.forEach(item => {
+  dropdownItems.forEach((item) => {
     item.addEventListener("click", (e) => {
-
       if (window.innerWidth <= 768 && item.querySelector("div")) {
         e.stopPropagation();
 
         // close others
-        dropdownItems.forEach(i => {
+        dropdownItems.forEach((i) => {
           if (i !== item) i.classList.remove("open");
         });
 
         item.classList.toggle("open");
       }
-
     });
   });
 });
 
-
-
 const images = [
-  "Image/1 CV.jpg", "Image/2 CV.jpg", "Image/3 CV.jpg", "Image/4 CV.jpg", "Image/5 CV.jpg",
-  "Image/6 CV.jpg", "Image/7 CV.jpg", "Image/8 CV.jpg", "Image/9 CV.jpg", "Image/10 CV.jpg",
-  "Image/11 CV.jpg", "Image/12 CV.jpg", "Image/13 CV.jpg", "Image/14 CV.jpg", "Image/15 CV.jpg",
-  "Image/16 CV.jpg", "Image/17 CV.jpg", "Image/18 CV.jpg", "Image/19 CV.jpg", "Image/20 CV.jpg"
+  "Image/1 CV.jpg",
+  "Image/2 CV.jpg",
+  "Image/3 CV.jpg",
+  "Image/4 CV.jpg",
+  "Image/5 CV.jpg",
+  "Image/6 CV.jpg",
+  "Image/7 CV.jpg",
+  "Image/8 CV.jpg",
+  "Image/9 CV.jpg",
+  "Image/10 CV.jpg",
+  "Image/11 CV.jpg",
+  "Image/12 CV.jpg",
+  "Image/13 CV.jpg",
+  "Image/14 CV.jpg",
+  "Image/15 CV.jpg",
+  "Image/16 CV.jpg",
+  "Image/17 CV.jpg",
+  "Image/18 CV.jpg",
+  "Image/19 CV.jpg",
+  "Image/20 CV.jpg",
 ];
 
 const sliderList = document.getElementById("sliderList");
@@ -69,7 +76,9 @@ const sliderImages = [...images, ...images];
 
 function updateSliderPosition() {
   const itemWidth = sliderList.children[0].offsetWidth + 20; // including margin
-  const offset = -(currentIndex + images.length) * itemWidth + (sliderList.parentElement.offsetWidth / 2 - itemWidth / 2);
+  const offset =
+    -(currentIndex + images.length) * itemWidth +
+    (sliderList.parentElement.offsetWidth / 2 - itemWidth / 2);
   sliderList.style.transform = `translateX(${offset}px)`;
 
   // Center image
@@ -96,7 +105,6 @@ document.getElementById("prevBtn").addEventListener("click", prevSlide);
 
 renderSlider();
 
-
 function renderSlider() {
   sliderList.innerHTML = "";
   sliderImages.forEach((src, index) => {
@@ -112,7 +120,7 @@ function renderSlider() {
     div.appendChild(btn);
 
     btn.addEventListener("click", () => {
-      window.location.href = "index.html"; // simple redirect
+      window.location.href = "maker.html"; // simple redirect
     });
 
     // Click event: clicked image center me aaye
@@ -136,16 +144,16 @@ function attachMobileDrag() {
   let isDragging = false;
   let startX = 0;
 
-  sliderList.addEventListener("touchstart", e => {
+  sliderList.addEventListener("touchstart", (e) => {
     isDragging = true;
     startX = e.touches[0].pageX;
   });
 
-  sliderList.addEventListener("touchend", e => {
+  sliderList.addEventListener("touchend", (e) => {
     isDragging = false;
   });
 
-  sliderList.addEventListener("touchmove", e => {
+  sliderList.addEventListener("touchmove", (e) => {
     if (!isDragging) return;
     const move = e.touches[0].pageX - startX;
     const itemWidth = sliderList.children[0].offsetWidth + 20;
@@ -182,27 +190,83 @@ window.addEventListener("resize", () => {
 
 const steps = [
   [
-    { icon: "fa-regular fa-file-lines", iconColor: "", title: "Resume Builder", text: "Build the resume that gets you hired. We designed the builder with top employers Finish a draft 20 mins with “Recruiter-AI”.", img: "Image/resume-box-tool.png", bg: "#eaf6ff" },
-    { icon: "fa-solid fa-microchip", iconColor: "#2E7D32", title: "Recruiter Match", text: "Recruiters come to us with roles they can’t fill. We close-match your resume and then send it to 50 recruiters a week.", img: "Image/recruiter-box-tool.png", bg: "#e7f4ed" }
+    {
+      icon: "fa-regular fa-file-lines",
+      iconColor: "",
+      title: "Resume Builder",
+      text: "Build the resume that gets you hired. We designed the builder with top employers Finish a draft 20 mins with “Recruiter-AI”.",
+      img: "Image/resume-box-tool.png",
+      bg: "#eaf6ff",
+    },
+    {
+      icon: "fa-solid fa-microchip",
+      iconColor: "#2E7D32",
+      title: "Recruiter Match",
+      text: "Recruiters come to us with roles they can’t fill. We close-match your resume and then send it to 50 recruiters a week.",
+      img: "Image/recruiter-box-tool.png",
+      bg: "#e7f4ed",
+    },
   ],
   [
-    { icon: "fa-solid fa-magnifying-glass", iconColor: "#a6acff", title: "Job Board", text: "See every online job board in one place. We search the entire internet every day. If a role goes live, you won’t miss it.", img: "Image/job_board.png", bg: "#f1f2ff" },
-    { icon: "fa-solid fa-paper-plane", iconColor: "", title: "Auto Apply", text: "Our team of experts apply for you. All they need is your resume and your target salary. interviews come by email.", img: "Image/auto_apply.png", bg: "#EAF6FF" }
+    {
+      icon: "fa-solid fa-magnifying-glass",
+      iconColor: "#a6acff",
+      title: "Job Board",
+      text: "See every online job board in one place. We search the entire internet every day. If a role goes live, you won’t miss it.",
+      img: "Image/job_board.png",
+      bg: "#f1f2ff",
+    },
+    {
+      icon: "fa-solid fa-paper-plane",
+      iconColor: "",
+      title: "Auto Apply",
+      text: "Our team of experts apply for you. All they need is your resume and your target salary. interviews come by email.",
+      img: "Image/auto_apply.png",
+      bg: "#EAF6FF",
+    },
   ],
   [
-    { icon: "fa-solid fa-comments", iconColor: "#2E7D32", title: "Interview Prep", text: "Practice the questions that get you hired. Choose from the world’s best employers and see instant feedback.", img: "Image/interview_prep.png", bg: "#e7f4ed" },
-    { icon: "fa-solid fa-gauge-high", iconColor: "#a6acff", title: "Salary Analyzer", text: "Get paid 7% more. Our salary analyzer shows you if your job offer is at the market rate. Always negotiate!", img: "Image/salary_analyzer.png", bg: "#f1f2ff" }
+    {
+      icon: "fa-solid fa-comments",
+      iconColor: "#2E7D32",
+      title: "Interview Prep",
+      text: "Practice the questions that get you hired. Choose from the world’s best employers and see instant feedback.",
+      img: "Image/interview_prep.png",
+      bg: "#e7f4ed",
+    },
+    {
+      icon: "fa-solid fa-gauge-high",
+      iconColor: "#a6acff",
+      title: "Salary Analyzer",
+      text: "Get paid 7% more. Our salary analyzer shows you if your job offer is at the market rate. Always negotiate!",
+      img: "Image/salary_analyzer.png",
+      bg: "#f1f2ff",
+    },
   ],
   [
-    { icon: "fa-solid fa-user", iconColor: "#2E7D32", title: "Career Coaching", text: "Work 1-1 with an expert to expand your network, give better interviews and negotiate a higher salary.", img: "Image/career_coaching.png", bg: "#e7f4ed" },
-    { icon: "fa-solid fa-bolt", iconColor: "#a6acff", title: "Future Learn", text: "Future proof yourself. Get the courses you need to grow. Accredited, certified and respected by employers.", img: "Image/future_learn.png", bg: "#f1f2ff" }
-  ]
+    {
+      icon: "fa-solid fa-user",
+      iconColor: "#2E7D32",
+      title: "Career Coaching",
+      text: "Work 1-1 with an expert to expand your network, give better interviews and negotiate a higher salary.",
+      img: "Image/career_coaching.png",
+      bg: "#e7f4ed",
+    },
+    {
+      icon: "fa-solid fa-bolt",
+      iconColor: "#a6acff",
+      title: "Future Learn",
+      text: "Future proof yourself. Get the courses you need to grow. Accredited, certified and respected by employers.",
+      img: "Image/future_learn.png",
+      bg: "#f1f2ff",
+    },
+  ],
 ];
 
 const stepsList = document.getElementById("stepsList").children;
 
 function updateContent(index) {
-  [...stepsList].forEach(li => li.classList.remove("active"));
+  [...stepsList].forEach((li) => li.classList.remove("active"));
   stepsList[index].classList.add("active");
 
   // BOX 1
@@ -240,8 +304,6 @@ updateContent(0);
   });
 });
 
-
-
 const uploadBtn = document.querySelector(".button-2");
 const fileInput = document.getElementById("resumeInput");
 
@@ -256,137 +318,138 @@ fileInput.addEventListener("change", (event) => {
   }
 });
 
-
-const myAccountBtn = document.getElementById('myAccountBtn');
-const loginOverlay = document.getElementById('loginOverlay');
-const closeBtn = document.getElementById('closeBtn');
-const loginForm = document.getElementById('loginForm');
-const signupForm = document.getElementById('signupForm');
-const showSignup = document.getElementById('showSignup');
-const showLogin = document.getElementById('showLogin');
-const dropdowns = document.querySelectorAll('.dropdown');
+const myAccountBtn = document.getElementById("myAccountBtn");
+const loginOverlay = document.getElementById("loginOverlay");
+const closeBtn = document.getElementById("closeBtn");
+const loginForm = document.getElementById("loginForm");
+const signupForm = document.getElementById("signupForm");
+const showSignup = document.getElementById("showSignup");
+const showLogin = document.getElementById("showLogin");
+const dropdowns = document.querySelectorAll(".dropdown");
+const forgotPasswordLink = document.getElementById("forgotPasswordLink");
+const resetForm = document.getElementById("resetForm");
+const backToLogin = document.getElementById("backToLogin");
+const otpForm = document.getElementById("otpForm");
+const newPasswordForm = document.getElementById("newPasswordForm");
 
 // Open login modal
-myAccountBtn.addEventListener('click', () => {
-  loginOverlay.style.display = 'flex';
+myAccountBtn.addEventListener("click", () => {
+  loginOverlay.style.display = "flex";
 });
 
 // Close login modal
-closeBtn.addEventListener('click', () => loginOverlay.style.display = 'none');
+closeBtn.addEventListener("click", () => (loginOverlay.style.display = "none"));
 
 // Switch forms
-showSignup.addEventListener('click', () => {
-  loginForm.style.display = 'none';
-  signupForm.style.display = 'block';
+showSignup.addEventListener("click", () => {
+  loginForm.style.display = "none";
+  signupForm.style.display = "block";
 });
-showLogin.addEventListener('click', () => {
-  signupForm.style.display = 'none';
-  loginForm.style.display = 'block';
+showLogin.addEventListener("click", () => {
+  signupForm.style.display = "none";
+  loginForm.style.display = "block";
 });
-
-// Disable dropdown hover when modal is open
-// dropdowns.forEach(drop => {
-//   drop.addEventListener('mouseenter', () => {
-//     if (loginOverlay.style.display === 'flex') {
-//       drop.querySelector('.dropdown-content').style.display = 'none';
-//     }
-//   });
-// });
 
 // Login with Firebase
-document.getElementById('loginBtn').addEventListener('click', () => {
-  const email = document.getElementById('loginEmail').value;
-  const password = document.getElementById('loginPassword').value;
-  auth.signInWithEmailAndPassword(email, password)
-    .then(() => loginOverlay.style.display = 'none')
-    .catch(err => showPopup(err.message, 'error'));
+document.getElementById("loginBtn").addEventListener("click", () => {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+  auth
+    .signInWithEmailAndPassword(email, password)
+    .then(() => (loginOverlay.style.display = "none"))
+    .catch((err) => showPopup(err.message, "error"));
 });
 
 // Signup with Firebase
-document.getElementById('signupBtn').addEventListener('click', () => {
-  const name = document.getElementById('signupName').value;
-  const email = document.getElementById('signupEmail').value;
-  const password = document.getElementById('signupPassword').value;
-  const rePass = document.getElementById('signupRePassword').value;
+document.getElementById("signupBtn").addEventListener("click", () => {
+  const name = document.getElementById("signupName").value;
+  const email = document.getElementById("signupEmail").value;
+  const password = document.getElementById("signupPassword").value;
+  const rePass = document.getElementById("signupRePassword").value;
   if (password !== rePass) {
-    showPopup('Passwords do not match!', 'error');
+    showPopup("Passwords do not match!", "error");
     return;
   }
-  auth.createUserWithEmailAndPassword(email, password)
-    .then(user => {
-      
-      user.user.updateProfile({ displayName: name });
-      loginOverlay.style.display = 'none';
-    })
-  showPopup('Account created successfully 🎉');
+  auth.createUserWithEmailAndPassword(email, password).then((user) => {
+    user.user.updateProfile({ displayName: name });
+    loginOverlay.style.display = "none";
+  });
+  showPopup("Account created successfully 🎉");
 });
 
 // Google Login
-document.getElementById('googleLogin').addEventListener('click', () => {
+document.getElementById("googleLogin").addEventListener("click", () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  auth.signInWithPopup(provider)
-    .then(() => loginOverlay.style.display = 'none')
-  showPopup('Firebase Domain Cannot Work!');
+  auth
+    .signInWithPopup(provider)
+    .then(() => (loginOverlay.style.display = "none"));
+  showPopup("Firebase Domain Cannot Work!");
 });
 
-// Show logged-in user name on My Account button
-// auth.onAuthStateChanged(user => {
-//   if (user && user.displayName) {
-//     // Show only name
-//     myAccountBtn.textContent = `Hello, ${user.displayName}`;
-//   } else {
-//     // Default text if not logged in or name missing
-//     myAccountBtn.textContent = "My Account";
-//   }
-// });
 
 
-const forgotPasswordLink = document.getElementById('forgotPasswordLink');
-const resetForm = document.getElementById('resetForm');
-const backToLogin = document.getElementById('backToLogin');
-
-forgotPasswordLink.addEventListener('click', (e) => {
+// Show Reset Password Form
+forgotPasswordLink.addEventListener("click", (e) => {
   e.preventDefault();
-  loginForm.style.display = 'none';
-  signupForm.style.display = 'none';
-  resetForm.style.display = 'block';
+  loginForm.style.display = "none";
+  signupForm.style.display = "none";
+  resetForm.style.display = "block";
 });
 
-backToLogin.addEventListener('click', (e) => {
+// Back to Login
+backToLogin.addEventListener("click", (e) => {
   e.preventDefault();
-  resetForm.style.display = 'none';
-  loginForm.style.display = 'block';
+  resetForm.style.display = "none";
+  loginForm.style.display = "block";
 });
 
+// Send OTP
+document.getElementById("resetBtn").addEventListener("click", () => {
+  userEmail = document.getElementById("resetEmail").value;
+  if (!userEmail) {
+    showPopup("Please enter your email!");
+    return;
+  }
 
-document.getElementById('resetBtn').addEventListener('click', () => {
-  const email = document.getElementById('resetEmail').value;
-  auth.sendPasswordResetEmail(email)
+  auth
+  .sendPasswordResetEmail(userEmail)
     .then(() => {
-      showPopup(`For testing, ${email}`);
-      resetForm.style.display = 'none';
-      loginForm.style.display = 'block';
+      showPopup("Password reset email sent! Check your inbox.");
+      resetForm.style.display = "none";
+      loginForm.style.display = "block";
     })
-    .catch(err => alert(err.message));
+    .catch((error) => {
+      showPopup(error.message, "error");
+    });
 });
 
-
-function showPopup(message, type = 'success') {
-  const toast = document.getElementById('popupToast');
+function showPopup(message, type = "success") {
+  const toast = document.getElementById("popupToast");
   toast.textContent = message;
 
   // Change color based on type
-  toast.style.backgroundColor = type === 'success' ? '#28a745' : '#dc3545'; // green/red
+  toast.style.backgroundColor = type === "success" ? "#28a745" : "#dc3545"; // green/red
 
-  toast.classList.add('show');
-  toast.classList.remove('hidden');
+  toast.classList.add("show");
+  toast.classList.remove("hidden");
 
   // Hide after 3 seconds
   setTimeout(() => {
-    toast.classList.remove('show');
-    toast.classList.add('hidden');
+    toast.classList.remove("show");
+    toast.classList.add("hidden");
   }, 3000);
 }
 
-
-
+function togglePassword(inputId, span) {
+  const input = document.getElementById(inputId);
+  const icon = span.querySelector("i");
+  if (input.type === "password") {
+    input.type = "text";
+    icon.classList.remove("fa-eye");
+    icon.classList.add("fa-eye-slash");
+  } else {
+    input.type = "password";
+    icon.classList.remove("fa-eye-slash");
+    icon.classList.add("fa-eye");
+  }
+}
