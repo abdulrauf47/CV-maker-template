@@ -386,8 +386,6 @@ document.getElementById("googleLogin").addEventListener("click", () => {
   showPopup("Firebase Domain Cannot Work!");
 });
 
-
-
 // Show Reset Password Form
 forgotPasswordLink.addEventListener("click", (e) => {
   e.preventDefault();
@@ -412,7 +410,7 @@ document.getElementById("resetBtn").addEventListener("click", () => {
   }
 
   auth
-  .sendPasswordResetEmail(userEmail)
+    .sendPasswordResetEmail(userEmail)
     .then(() => {
       showPopup("Password reset email sent! Check your inbox.");
       resetForm.style.display = "none";
@@ -453,3 +451,25 @@ function togglePassword(inputId, span) {
     icon.classList.add("fa-eye");
   }
 }
+
+const slider = document.querySelector(".resume-slider");
+const nextBtn = document.querySelector(".nav.next");
+const prevBtn = document.querySelector(".nav.prev");
+
+nextBtn.addEventListener("click", () => {
+  slider.scrollBy({ left: 320, behavior: "smooth" });
+});
+
+prevBtn.addEventListener("click", () => {
+  slider.scrollBy({ left: -320, behavior: "smooth" });
+});
+
+// Category filter (optional, for example)
+const categories = document.querySelectorAll(".categories button");
+categories.forEach((cat) => {
+  cat.addEventListener("click", () => {
+    categories.forEach((b) => b.classList.remove("active"));
+    cat.classList.add("active");
+    // Implement filtering if you want (advanced)
+  });
+});

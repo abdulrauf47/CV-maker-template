@@ -1646,6 +1646,291 @@ html {
   font-size: 18px;
 }
 
+.body {
+  background-color: #2e3aab;
+  color: white;
+}
+
+.resume-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.categories {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.categories button {
+  background-color: #3946c1;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.categories button.active {
+  background-color: #88b3ff;
+  color: black;
+}
+
+.resume-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.resume-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+
+.resume-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.resume-card {
+  width: 386px;
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.resume-card img {
+  width: 100%;
+  display: block;
+}
+
+.nav {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.nav.prev {
+  left: -20px;
+}
+
+.nav.next {
+  right: -20px;
+}
+
+.cta {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.cta h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  color: #d0d0d0;
+  margin-bottom: 20px;
+}
+
+.see-all {
+  background-color: #1da1f2;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.reviews-section {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.reviews-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.trustpilot-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  gap: 10px;
+}
+
+.stars {
+  color: #00b87c;
+  font-size: 24px;
+}
+
+.reviews-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.review-card .stars {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.review-card h3 {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.review-card p {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.review-card .author {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 10px;
+}
+
+/* Arrows and pagination (optional) */
+.slider-controls {
+  margin-top: 30px;
+}
+
+.slider-controls button {
+  border: none;
+  background-color: #e5e7eb;
+  color: #111827;
+  padding: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.slider-controls button.active {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+@media (max-width: 599px) {
+  .resume-section {
+    padding: 20px 10px;
+  }
+
+  .categories button {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+
+  .resume-card {
+    min-width: 220px;
+    max-width: 220px;
+  }
+
+  .cta h1 {
+    font-size: 24px;
+  }
+
+  .cta p {
+    font-size: 14px;
+  }
+
+  .nav {
+    font-size: 24px;
+    padding: 4px 8px;
+  }
+}
+
+/* Tablets: 600px - 1024px */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .resume-card {
+    min-width: 250px;
+    max-width: 250px;
+  }
+
+  .cta h1 {
+    font-size: 28px;
+  }
+
+  .cta p {
+    font-size: 15px;
+  }
+
+  .nav {
+    font-size: 26px;
+    padding: 5px 10px;
+  }
+}
+
+/* Laptops: 1025px - 1440px */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .resume-card {
+    min-width: 300px;
+    max-width: 300px;
+  }
+
+  .cta h1 {
+    font-size: 30px;
+  }
+
+  .cta p {
+    font-size: 16px;
+  }
+
+  .nav {
+    font-size: 28px;
+    padding: 5px 12px;
+  }
+}
+
+@media (min-width: 1441px) {
+  .resume-card {
+    min-width: 320px;
+    max-width: 320px;
+  }
+
+  .cta h1 {
+    font-size: 32px;
+  }
+
+  .cta p {
+    font-size: 16px;
+  }
+
+  .nav {
+    font-size: 30px;
+    padding: 5px 12px;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 766px) {
   .nav-menu {
     display: none;
@@ -1719,8 +2004,6 @@ html {
   .top-text .text {
     display: none;
   }
-
-  /* Mobile menu styles */
   .menu-icon {
     display: block;
     cursor: pointer;
@@ -1728,7 +2011,6 @@ html {
 
   .nav-menu {
     display: none;
-    /* hidden by default on mobile */
     position: fixed;
     top: 60px;
     left: 0;
