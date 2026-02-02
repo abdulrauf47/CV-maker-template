@@ -314,12 +314,30 @@ uploadBtn.addEventListener("click", () => {
 fileInput.addEventListener("change", (event) => {
   const file = event.target.files[0];
   if (file) {
-    alert("You selected: Successfully");
+    showPopup("You selected: Successfully");
   }
 });
 
-const myAccountBtn = document.getElementById("myAccountBtn");
-const loginOverlay = document.getElementById("loginOverlay");
+window.addEventListener("load", () => {
+  if (!isUserLoggedIn()) {
+    accountDropdown.classList.add("hidden");
+  }
+});
+
+function isUserLoggedIn() {
+  return localStorage.getItem("isLoggedIn") === "true";
+}
+
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function isValidPassword(password) {
+  const passwordRegex = /^(?=.*\d).{8,}$/;
+  return passwordRegex.test(password);
+}
+
 const closeBtn = document.getElementById("closeBtn");
 const loginForm = document.getElementById("loginForm");
 const signupForm = document.getElementById("signupForm");
@@ -331,10 +349,65 @@ const resetForm = document.getElementById("resetForm");
 const backToLogin = document.getElementById("backToLogin");
 const otpForm = document.getElementById("otpForm");
 const newPasswordForm = document.getElementById("newPasswordForm");
+const myAccountBtn = document.getElementById("myAccountBtn");
+const accountDropdown = document.getElementById("accountDropdown");
+const signOutBtn = document.getElementById("signOutBtn");
+const loginOverlay = document.getElementById("loginOverlay");
+
+// Firebase login
+document.getElementById("loginBtn").addEventListener("click", (e) => {
+  e.preventDefault();
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value;
+
+  auth
+    .signInWithEmailAndPassword(email, password)
+    .then((user) => {
+      isLoggedIn = true;
+      loginOverlay.style.display = "none";
+      showPopup("Login successful ✅");
+    })
+    .catch((err) => showPopup(err.message, "error"));
+});
+
+// Firebase signup
+document.getElementById("signupBtn").addEventListener("click", (e) => {
+  e.preventDefault();
+  const name = document.getElementById("signupName").value.trim();
+  const email = document.getElementById("signupEmail").value.trim();
+  const password = document.getElementById("signupPassword").value;
+  const rePass = document.getElementById("signupRePassword").value;
+
+  if (password !== rePass) {
+    showPopup("Passwords do not match", "error");
+    return;
+  }
+
+  auth.createUserWithEmailAndPassword(email, password).then((user) => {
+    user.user.updateProfile({ displayName: name });
+    isLoggedIn = true;
+    loginOverlay.style.display = "none";
+    showPopup("Account created successfully 🎉");
+  });
+});
 
 // Open login modal
 myAccountBtn.addEventListener("click", () => {
-  loginOverlay.style.display = "flex";
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+  if (isLoggedIn) {
+    accountDropdown.classList.toggle("hidden");
+  } else {
+    loginOverlay.style.display = "flex";
+  }
+});
+
+signOutBtn.addEventListener("click", () => {
+  auth.signOut().then(() => {
+    localStorage.removeItem("isLoggedIn");
+    accountDropdown.classList.add("hidden");
+    showPopup("Logged out successfully 👋");
+  });
 });
 
 // Close login modal
@@ -352,29 +425,61 @@ showLogin.addEventListener("click", () => {
 
 // Login with Firebase
 document.getElementById("loginBtn").addEventListener("click", () => {
-  const email = document.getElementById("loginEmail").value;
+  const email = document.getElementById("loginEmail").value.trim();
   const password = document.getElementById("loginPassword").value;
-  auth
-    .signInWithEmailAndPassword(email, password)
-    .then(() => (loginOverlay.style.display = "none"))
-    .catch((err) => showPopup(err.message, "error"));
+
+  if (!isValidEmail(email)) {
+    showPopup("Please enter a valid email address", "error");
+    return;
+  }
+
+  if (!password) {
+    showPopup("Password is required", "error");
+    return;
+  }
+
+  auth.signInWithEmailAndPassword(email, password).then(() => {
+    loginOverlay.style.display = "none";
+    showPopup("Login successful ✅");
+  });
 });
 
 // Signup with Firebase
 document.getElementById("signupBtn").addEventListener("click", () => {
-  const name = document.getElementById("signupName").value;
-  const email = document.getElementById("signupEmail").value;
+  const name = document.getElementById("signupName").value.trim();
+  const email = document.getElementById("signupEmail").value.trim();
   const password = document.getElementById("signupPassword").value;
   const rePass = document.getElementById("signupRePassword").value;
-  if (password !== rePass) {
-    showPopup("Passwords do not match!", "error");
+
+  if (!name) {
+    showPopup("Name is required", "error");
     return;
   }
+
+  if (!isValidEmail(email)) {
+    showPopup("Enter a valid email address", "error");
+    return;
+  }
+
+  if (!isValidPassword(password)) {
+    showPopup(
+      "Password must be at least 8 characters & contain a number",
+      "error",
+    );
+    return;
+  }
+
+  if (password !== rePass) {
+    showPopup("Passwords do not match");
+    return;
+  }
+
   auth.createUserWithEmailAndPassword(email, password).then((user) => {
     user.user.updateProfile({ displayName: name });
     loginOverlay.style.display = "none";
+    showPopup("Account created successfully 🎉");
   });
-  showPopup("Account created successfully 🎉");
+  showPopup("Does not exist!");
 });
 
 // Google Login
@@ -417,7 +522,7 @@ document.getElementById("resetBtn").addEventListener("click", () => {
       loginForm.style.display = "block";
     })
     .catch((error) => {
-      showPopup(error.message, "error");
+      showPopup("Check Email", "error");
     });
 });
 
@@ -472,4 +577,21 @@ categories.forEach((cat) => {
     cat.classList.add("active");
     // Implement filtering if you want (advanced)
   });
+});
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    localStorage.setItem("isLoggedIn", "true");
+
+    document.getElementById("accountName").textContent =
+      user.displayName || "User";
+
+    document.getElementById("accountEmail").textContent = user.email;
+
+    // ⚠️ dropdown yahan show NAHI hoga
+    accountDropdown.classList.add("hidden");
+  } else {
+    localStorage.removeItem("isLoggedIn");
+    accountDropdown.classList.add("hidden");
+  }
 });
