@@ -11,6 +11,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const menuIcon = document.querySelector(".menu-icon");
   const navMenu = document.querySelector(".nav-menu");
@@ -354,41 +357,16 @@ const accountDropdown = document.getElementById("accountDropdown");
 const signOutBtn = document.getElementById("signOutBtn");
 const loginOverlay = document.getElementById("loginOverlay");
 
-// Firebase login
-document.getElementById("loginBtn").addEventListener("click", (e) => {
-  e.preventDefault();
-  const email = document.getElementById("loginEmail").value.trim();
-  const password = document.getElementById("loginPassword").value;
+const accountName = document.getElementById("accountName");
 
-  auth
-    .signInWithEmailAndPassword(email, password)
-    .then((user) => {
-      isLoggedIn = true;
-      loginOverlay.style.display = "none";
-      showPopup("Login successful ✅");
-    })
-    .catch((err) => showPopup(err.message, "error"));
-});
-
-// Firebase signup
-document.getElementById("signupBtn").addEventListener("click", (e) => {
-  e.preventDefault();
-  const name = document.getElementById("signupName").value.trim();
-  const email = document.getElementById("signupEmail").value.trim();
-  const password = document.getElementById("signupPassword").value;
-  const rePass = document.getElementById("signupRePassword").value;
-
-  if (password !== rePass) {
-    showPopup("Passwords do not match", "error");
-    return;
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in
+    accountName.textContent = user.displayName || user.email;
+  } else {
+    // User is signed out
+    accountName.textContent = "Guest";
   }
-
-  auth.createUserWithEmailAndPassword(email, password).then((user) => {
-    user.user.updateProfile({ displayName: name });
-    isLoggedIn = true;
-    loginOverlay.style.display = "none";
-    showPopup("Account created successfully 🎉");
-  });
 });
 
 // Open login modal
@@ -406,7 +384,7 @@ signOutBtn.addEventListener("click", () => {
   auth.signOut().then(() => {
     localStorage.removeItem("isLoggedIn");
     accountDropdown.classList.add("hidden");
-    showPopup("Logged out successfully 👋");
+    showPopup("Logged out successfully 👋" , "error");
   });
 });
 
@@ -424,7 +402,9 @@ showLogin.addEventListener("click", () => {
 });
 
 // Login with Firebase
-document.getElementById("loginBtn").addEventListener("click", () => {
+document.getElementById("loginBtn").addEventListener("click", (e) => {
+  e.preventDefault();
+
   const email = document.getElementById("loginEmail").value.trim();
   const password = document.getElementById("loginPassword").value;
 
@@ -438,11 +418,22 @@ document.getElementById("loginBtn").addEventListener("click", () => {
     return;
   }
 
-  auth.signInWithEmailAndPassword(email, password).then(() => {
-    loginOverlay.style.display = "none";
-    showPopup("Login successful ✅");
-  });
+  auth
+    .signInWithEmailAndPassword(email, password)
+    .then(() => {
+      showPopup("Login successful ✅");
+
+      // 🔥 REDIRECT TO DASHBOARD
+      setTimeout(() => {
+        window.location.href = "dashboard.html";
+      }, 800);
+    })
+    .catch((error) => {
+      showPopup(error.message, "error");
+    });
 });
+
+
 
 // Signup with Firebase
 document.getElementById("signupBtn").addEventListener("click", () => {
@@ -479,7 +470,6 @@ document.getElementById("signupBtn").addEventListener("click", () => {
     loginOverlay.style.display = "none";
     showPopup("Account created successfully 🎉");
   });
-  showPopup("Does not exist!");
 });
 
 // Google Login
@@ -543,19 +533,27 @@ function showPopup(message, type = "success") {
   }, 3000);
 }
 
-function togglePassword(inputId, span) {
+window.togglePassword = function(inputId, span) {
   const input = document.getElementById(inputId);
   const icon = span.querySelector("i");
+  if (!input) return;
+
   if (input.type === "password") {
     input.type = "text";
-    icon.classList.remove("fa-eye");
-    icon.classList.add("fa-eye-slash");
+    if (icon) {
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    }
   } else {
     input.type = "password";
-    icon.classList.remove("fa-eye-slash");
-    icon.classList.add("fa-eye");
+    if (icon) {
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    }
   }
-}
+};
+
+
 
 const slider = document.querySelector(".resume-slider");
 const nextBtn = document.querySelector(".nav.next");
@@ -588,7 +586,6 @@ firebase.auth().onAuthStateChanged((user) => {
 
     document.getElementById("accountEmail").textContent = user.email;
 
-    // ⚠️ dropdown yahan show NAHI hoga
     accountDropdown.classList.add("hidden");
   } else {
     localStorage.removeItem("isLoggedIn");

@@ -1,33 +1,73 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile | Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css" />
-  </head>
-  <body>
-    <div class="main-dashboard-div">
-      <nav class="navbar">
-        <div class="logo">My Dashboard</div>
 
-        <div class="profile-wrapper">
-          <img
-            src="Image/WhatsApp Image 2025-10-21 at 7.03.30 PM.jpeg"
-            alt="User"
-            id="profileImg"
-            class="profile-img"
-          />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile | Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
 
-          <div class="profile-dropdown" id="profileDropdown">
-            <p><strong>Name:</strong> Abdul Rauf</p>
-            <p><strong>Email:</strong> user@email.com</p>
-            <hr />
-            <button id="logoutBtn">Logout</button>
-          </div>
+<body>
+  <div class="main-dashboard-div">
+    <nav class="navbar">
+      <div class="logo">My Dashboard</div>
+
+      <div class="profile-wrapper">
+        <img src="Image/WhatsApp Image 2025-10-21 at 7.03.30 PM.jpeg" alt="User" id="profileImg" class="profile-img" />
+
+        <div class="profile-dropdown" id="profileDropdown">
+          <p><strong>Name:</strong> Abdul Rauf</p>
+          <p><strong>Email:</strong> user@email.com</p>
+          <hr />
+          <button id="logoutBtn">Logout</button>
         </div>
-      </nav>
+      </div>
+    </nav>
+    <div class="sidebar">
+      <div class="menu-item active"><i class="fas fa-th-large"></i> Dashboard</div>
+
+      <div class="menu-item has-submenu"><i class="fas fa-file-alt"></i> Documents <i id="right-corner" class="fas fa-chevron-right"
+          style="margin-left:auto;"></i>
+        <div class="submenu">
+          <div class="menu-item">Reports</div>
+          <div class="menu-item">Invoices</div>
+        </div>
+      </div>
+
+      <div class="menu-item"><i class="fas fa-briefcase"></i> Jobs</div>
+      <div class="menu-item"><i class="fas fa-tasks"></i> Job Tracker</div>
+      <div class="menu-item"><i class="fas fa-user-graduate"></i> Interview Prep</div>
+      <div class="menu-item"><i class="fas fa-chart-pie"></i> Salary Analyzer</div>
+      <div class="menu-item"><i class="fas fa-share-alt"></i> Resume Distribution</div>
+      <div class="menu-item"><i class="fas fa-graduation-cap"></i> Unlimited Learning <span class="new-badge">NEW</span>
+      </div>
+
+      <div class="menu-item has-submenu"><i class="fas fa-search"></i> Job Search Method <i id="right-corner" class="fas fa-chevron-right"
+          style="margin-left:auto;"></i>
+        <div class="submenu">
+          <div class="menu-item">Online</div>
+          <div class="menu-item">Offline</div>
+        </div>
+      </div>
+
+      <div class="menu-item"><i class="fas fa-chalkboard-teacher"></i> Coaching</div>
+
+      <div class="menu-item has-submenu"><i class="fas fa-ellipsis-h"></i> Other <i class="fas fa-chevron-right"
+          style="margin-left:auto;"></i>
+        <div class="submenu">
+          <div class="menu-item">Settings</div>
+          <div class="menu-item">Help</div>
+        </div>
+      </div>
     </div>
-    <script src="dashboard.js"></script>
-  </body>
+
+    <div class="content">
+
+    </div>
+  </div>
+  <script type="module" src="dashboard.js"></script>
+</body>
+
 </html>
