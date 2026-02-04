@@ -26,36 +26,37 @@
       </div>
     </nav>
     <div class="sidebar">
-      <div class="menu-item active"><i class="fas fa-th-large"></i> Dashboard</div>
+      <div class="menu-item active"><i class="fa-solid fa-grip-vertical"></i>
+        <span class="text">Dashboard</span>
+      </div>
 
-      <div class="menu-item has-submenu"><i class="fas fa-file-alt"></i> Documents <i id="right-corner" class="fas fa-chevron-right"
-          style="margin-left:auto;"></i>
+      <div class="menu-item has-submenu"><i class="fas fa-file-alt"></i> <span class="text">Document</span>
+        <!-- <i class="fas fa-chevron-right" class="right-corner" style="margin-left:auto;font-size: 9px;"></i> -->
         <div class="submenu">
           <div class="menu-item">Reports</div>
           <div class="menu-item">Invoices</div>
         </div>
       </div>
 
-      <div class="menu-item"><i class="fas fa-briefcase"></i> Jobs</div>
-      <div class="menu-item"><i class="fas fa-tasks"></i> Job Tracker</div>
-      <div class="menu-item"><i class="fas fa-user-graduate"></i> Interview Prep</div>
-      <div class="menu-item"><i class="fas fa-chart-pie"></i> Salary Analyzer</div>
-      <div class="menu-item"><i class="fas fa-share-alt"></i> Resume Distribution</div>
-      <div class="menu-item"><i class="fas fa-graduation-cap"></i> Unlimited Learning <span class="new-badge">NEW</span>
+      <div class="menu-item"><i class="fas fa-briefcase"></i>
+        <span class="text">Jobs</span>
+      </div>
+      <div class="menu-item"><i class="fas fa-tasks"></i> <span class="text">Job Tracker</span></div>
+      <div class="menu-item"><i class="fas fa-user-graduate"></i><span class="text">Interview Prep</span></div>
+      <div class="menu-item"><i class="fas fa-chart-pie"></i><span class="text">Salary Ananlyzer</span></div>
+      <div class="menu-item"><i class="fas fa-share-alt"></i><span class="text">Resume Distribution</span></div>
+      <div class="menu-item"><i class="fas fa-graduation-cap"></i><span class="text">Unlimited Learning</span><span
+          class="new-badge">NEW</span>
       </div>
 
-      <div class="menu-item has-submenu"><i class="fas fa-search"></i> Job Search Method <i id="right-corner" class="fas fa-chevron-right"
-          style="margin-left:auto;"></i>
-        <div class="submenu">
-          <div class="menu-item">Online</div>
-          <div class="menu-item">Offline</div>
-        </div>
+      <div class="menu-item has-submenu"><i class="fas fa-search"></i><span class="text">Job Search Method</span>
+        <!-- <i class="right-corner" class="fas fa-chevron-right" style="margin-left:auto;font-size: 9px;"></i> -->
       </div>
 
-      <div class="menu-item"><i class="fas fa-chalkboard-teacher"></i> Coaching</div>
+      <div class="menu-item"><i class="fas fa-chalkboard-teacher"></i><span class="text">Coaching</span></div>
 
-      <div class="menu-item has-submenu"><i class="fas fa-ellipsis-h"></i> Other <i class="fas fa-chevron-right"
-          style="margin-left:auto;"></i>
+      <div class="menu-item has-submenu"><i class="fas fa-ellipsis-h"></i><span class="text">Other</span>
+        <!-- <i class="right-corner" class="fas fa-chevron-right" style="margin-left:auto;font-size: 9px;"></i> -->
         <div class="submenu">
           <div class="menu-item">Settings</div>
           <div class="menu-item">Help</div>
@@ -64,10 +65,119 @@
     </div>
 
     <div class="content">
+      <div class="dashboard-header">
+        <h1>Hi Abdul!</h1>
+        <p class="subtitle">What’s your goal today?</p>
+
+        <div class="goal-tabs">
+          <button class="goal active">Resume Building</button>
+          <button class="goal">Job Search</button>
+          <button class="goal">Interview Prep</button>
+          <button class="goal">Learning</button>
+        </div>
+      </div>
+
+      <div class="dashboard-body">
+        <div class="progress-card">
+          <h3>PROGRESS</h3>
+
+          <div class="progress-item active" data-target="resume-building">
+            <i class="fa-solid fa-file-circle-plus" style="font-size: 20px; color: gray;"></i>
+            <span>Resume Building</span>
+            <span>30%</span>
+            <div class="bar">
+              <div style="width:30%"></div>
+            </div>
+          </div>
+
+          <div class="progress-item" data-target="resume-tailoring">
+            <i class="fa-solid fa-file-pen" style="font-size: 20px; color: gray;"></i>
+            <span>Resume Tailoring</span>
+            <span>0%</span>
+            <div class="bar">
+              <div style="width:1%"></div>
+            </div>
+          </div>
+
+          <div class="progress-item" data-target="resume-distribution">
+            <i class="fa-solid fa-clone" style="font-size: 20px; color: gray;"></i>
+            <span>Resume Distribution</span>
+            <span>0%</span>
+            <div class="bar">
+              <div style="width:1%"></div>
+            </div>
+          </div>
+
+          <div class="progress-item" data-target="resume-cover-letter">
+            <i class="fa-regular fa-envelope" style="font-size: 20px; color: gray;"></i>
+            <span>Cover Letter Crafting</span>
+            <span>0%</span>
+            <div class="bar">
+              <div style="width:1%"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="slider-card">
+          <div class="slider">
+            <div class="slide-left active" id="resume-building">
+              <span class="resume-build">Resume building</span>
+              <h2>Improve your score in 5 mins</h2>
+              <p>Take small steps to improve your resume score. You’ll start getting interviews at 90% or higher.</p>
+              <button>Add employment history <strong>+25%</strong></button>
+            </div>
+            <div class="slide-left" id="resume-tailoring">
+              <span class="resume-build">Resume Tailoring</span>
+              <h2>Tailor your resume for every job</h2>
+              <p>Fine-tune your resume with AI. Match the job description and increase your chances by 78%.</p>
+              <button>Trailor to the Job<strong><i class="fa-solid fa-angle-right"></i></strong></button>
+            </div>
+            <div class="slide-left" id="resume-distribution">
+              <span class="resume-build">Resume Distribution</span>
+              <h2>Match with recruiters hiring now</h2>
+              <p>We’ll match your resume with recruiters looking for people like you. You can see who we’ve sent it to,
+                and where they work.</p>
+              <button>Send to 50 recruiters <strong><i class="fa-solid fa-angle-right"></i></strong></button>
+            </div>
+            <div class="slide-left" id="resume-cover-letter">
+              <span class="resume-build">Cover Letter Crafting</span>
+              <h2>Craft a cover letter</h2>
+              <p>Use AI to generate a strong cover letter in minutes. All we need is the job description.</p>
+              <button>Craft a cover Letter <strong><i class="fa-solid fa-angle-right"></i></strong></button>
+            </div>
+            <div class="slider-right">
+              <img id="sliderImage" src="Image/Dashboad_Hero_Section_1.webp" height="248" width="226">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-center">
+        <h1>
+          Your job matches
+        </h1>
+        <p>
+          Not right? Update your
+          <span>Profile</span>
+        </p>
+      </div>
+
+      <div class="no-matches">
+        <div class="no-matches-icon">
+          <img src="Image/dashboard_center_img.png" alt="No match">
+        </div>
+        <h2>We can’t find match yet</h2>
+        <p>Try changing your work preferences, job title or location<br>
+          Or use Job Search to find open roles for yourself.</p>
+        <div class="no-matches-buttons">
+          <button class="btn search">Go to Search</button>
+          <button class="btn change">Change work preferences</button>
+        </div>
+      </div>
 
     </div>
-  </div>
-  <script type="module" src="dashboard.js"></script>
+    <script type="module" src="dashboard.js"></script>
 </body>
 
 </html>

@@ -40,3 +40,66 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+const menuItems = document.querySelectorAll(".menu-item");
+
+menuItems.forEach(item => {
+  item.addEventListener("click", () => {
+    // sab se active class remove karo
+    menuItems.forEach(i => i.classList.remove("active"));
+
+    // jis par click hua usko active karo
+    item.classList.add("active");
+  });
+});
+
+
+const progressItems = document.querySelectorAll(".progress-item");
+const slides = document.querySelectorAll(".slide-left");
+
+progressItems.forEach(item => {
+  item.addEventListener("click", () => {
+
+    // left active
+    progressItems.forEach(i => i.classList.remove("active"));
+    item.classList.add("active");
+
+    // right content
+    slides.forEach(s => s.classList.remove("active"));
+    const target = item.dataset.target;
+    document.getElementById(target).classList.add("active");
+
+  });
+});
+
+const sliderImage = document.getElementById("sliderImage");
+
+// Map of images for each slide
+const images = {
+  "resume-building": "Image/Dashboad_Hero_Section_1.webp",
+  "resume-tailoring": "Image/Dashboad_Hero_Section_2.png",
+  "resume-distribution": "Image/Dashboad_Hero_Section_3.png",
+  "resume-cover-letter": "Image/Dashboad_Hero_Section_4.png"
+};
+
+// By default, show first slide + image
+slides.forEach(s => s.classList.remove("active")); // remove all active
+slides[0].classList.add("active");
+sliderImage.src = images["resume-building"];
+
+// Click event
+progressItems.forEach(item => {
+  item.addEventListener("click", () => {
+
+    // Left tab active
+    progressItems.forEach(i => i.classList.remove("active"));
+    item.classList.add("active");
+
+    // Right slide content active
+    slides.forEach(s => s.classList.remove("active"));
+    const target = item.dataset.target;
+    document.getElementById(target).classList.add("active");
+
+    // Change image according to clicked item
+    sliderImage.src = images[target];
+  });
+});
