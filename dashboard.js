@@ -103,3 +103,43 @@ progressItems.forEach(item => {
     sliderImage.src = images[target];
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const counter = document.querySelector(".percentage");
+  const bar = document.querySelector(".progress-fill");
+
+  const target = +counter.getAttribute("data-target");
+  const barWidth = bar.getAttribute("data-width");
+
+  let count = 0;
+
+  const updateCounter = () => {
+
+    if (count < target) {
+      count++;
+      counter.innerText = count + "%";
+      setTimeout(updateCounter, 20); // speed
+    } else {
+      counter.innerText = target + "%";
+    }
+
+  };
+
+  // Start from 0
+  counter.innerText = "0%";
+  bar.style.width = "0%";
+
+  // Animate bar
+  setTimeout(() => {
+    bar.style.transition = "width 1.5s ease";
+    bar.style.width = barWidth + "%";
+  }, 100);
+
+  // Animate number
+  updateCounter();
+
+});
+
+

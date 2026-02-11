@@ -26,158 +26,317 @@
       </div>
     </nav>
     <div class="sidebar">
-      <div class="menu-item active"><i class="fa-solid fa-grip-vertical"></i>
+      <div class="menu-item active" data-content="dashboard"><i class="fa-solid fa-grip-vertical"></i>
         <span class="text">Dashboard</span>
       </div>
 
-      <div class="menu-item has-submenu"><i class="fas fa-file-alt"></i> <span class="text">Document</span>
-        <!-- <i class="fas fa-chevron-right" class="right-corner" style="margin-left:auto;font-size: 9px;"></i> -->
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-file-alt"></i>
+        <span class="text">Document</span>
+        <i class="fa-solid fa-angle-right arrow" style="margin-left:auto;font-size: 10px;"></i>
+
         <div class="submenu">
-          <div class="menu-item">Reports</div>
-          <div class="menu-item">Invoices</div>
+          <a href="resume.html" class="submenu-item">My Resume</a>
+          <a href="cover.html" class="submenu-item">My Cover Letter</a>
+          <a href="hire.html" class="submenu-item">Hire Resume Writer</a>
         </div>
       </div>
 
-      <div class="menu-item"><i class="fas fa-briefcase"></i>
-        <span class="text">Jobs</span>
-      </div>
-      <div class="menu-item"><i class="fas fa-tasks"></i> <span class="text">Job Tracker</span></div>
-      <div class="menu-item"><i class="fas fa-user-graduate"></i><span class="text">Interview Prep</span></div>
-      <div class="menu-item"><i class="fas fa-chart-pie"></i><span class="text">Salary Ananlyzer</span></div>
-      <div class="menu-item"><i class="fas fa-share-alt"></i><span class="text">Resume Distribution</span></div>
-      <div class="menu-item"><i class="fas fa-graduation-cap"></i><span class="text">Unlimited Learning</span><span
-          class="new-badge">NEW</span>
-      </div>
+      <a href="jobs.html" style="text-decoration: none;">
+        <div class="menu-item" data-content="jobs"><i class="fas fa-briefcase"></i>
+          <span class="text">Jobs</span>
+        </div>
+      </a>
 
-      <div class="menu-item has-submenu"><i class="fas fa-search"></i><span class="text">Job Search Method</span>
-        <!-- <i class="right-corner" class="fas fa-chevron-right" style="margin-left:auto;font-size: 9px;"></i> -->
-      </div>
+      <a href="job_tracker.html" style="text-decoration: none;">
+        <div class="menu-item" data-content="job_tracker"><i class="fas fa-tasks"></i> <span class="text">Job
+            Tracker</span></div>
+      </a>
 
-      <div class="menu-item"><i class="fas fa-chalkboard-teacher"></i><span class="text">Coaching</span></div>
+      <a href="interview.html" style="text-decoration: none;">
+        <div class="menu-item" data-content="interview"><i class="fas fa-user-graduate"></i><span class="text">Interview
+            Prep</span></div>
+      </a>
 
-      <div class="menu-item has-submenu"><i class="fas fa-ellipsis-h"></i><span class="text">Other</span>
-        <!-- <i class="right-corner" class="fas fa-chevron-right" style="margin-left:auto;font-size: 9px;"></i> -->
+      <a href="analysis.HTML" style="text-decoration: none;">
+        <div class="menu-item" data-content="analysis"><i class="fas fa-chart-pie"></i><span class="text">Salary
+            Ananlyzer</span></div>
+      </a>
+
+      <a href="distribution.html" style="text-decoration: none;">
+        <div class="menu-item" data-content="distribution"><i class="fas fa-share-alt"></i><span class="text">Resume
+            Distribution</span></div>
+      </a>
+
+      <a href="unlimited.html" style="text-decoration: none;">
+        <div class="menu-item" data-content="unlimited"><i class="fas fa-graduation-cap"></i><span
+            class="text">Unlimited
+            Learning</span><span class="new-badge">NEW</span>
+        </div>
+      </a>
+
+      <div class="menu-item has-submenu">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span class="text">Job Search Method</span>
+        <i class="fa-solid fa-angle-right arrow" style="margin-left:auto;font-size: 10px; @media (max-width: 768px) {display: none;}"></i>
+
         <div class="submenu">
-          <div class="menu-item">Settings</div>
-          <div class="menu-item">Help</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="dashboard-header">
-        <h1>Hi Abdul!</h1>
-        <p class="subtitle">What’s your goal today?</p>
-
-        <div class="goal-tabs">
-          <button class="goal active">Resume Building</button>
-          <button class="goal">Job Search</button>
-          <button class="goal">Interview Prep</button>
-          <button class="goal">Learning</button>
+          <a href="settings.html" class="submenu-item">Master Plan</a>
+          <a href="help.html" class="submenu-item">Brand Yourself</a>
+          <a href="settings.html" class="submenu-item">Get More Metting </a>
+          <a href="help.html" class="submenu-item">Interview and Win</a>
+          <a href="settings.html" class="submenu-item">Close the Deal</a>
         </div>
       </div>
 
-      <div class="dashboard-body">
-        <div class="progress-card">
-          <h3>PROGRESS</h3>
+      <a href="coaching.html" style="text-decoration: none;">
+        <div class="menu-item" data-content="coaching"><i class="fas fa-chalkboard-teacher"></i><span
+            class="text">Coaching</span></div>
+      </a>
 
-          <div class="progress-item active" data-target="resume-building">
-            <i class="fa-solid fa-file-circle-plus" style="font-size: 20px; color: gray;"></i>
-            <span>Resume Building</span>
-            <span>30%</span>
-            <div class="bar">
-              <div style="width:30%"></div>
-            </div>
-          </div>
+      <div class="menu-item has-submenu">
+        <i class="fas fa-ellipsis-h"></i>
+        <span class="text">Other</span>
+        <i class="fa-solid fa-angle-right arrow" style="margin-left:auto;font-size: 10px;"></i>
 
-          <div class="progress-item" data-target="resume-tailoring">
-            <i class="fa-solid fa-file-pen" style="font-size: 20px; color: gray;"></i>
-            <span>Resume Tailoring</span>
-            <span>0%</span>
-            <div class="bar">
-              <div style="width:1%"></div>
-            </div>
-          </div>
-
-          <div class="progress-item" data-target="resume-distribution">
-            <i class="fa-solid fa-clone" style="font-size: 20px; color: gray;"></i>
-            <span>Resume Distribution</span>
-            <span>0%</span>
-            <div class="bar">
-              <div style="width:1%"></div>
-            </div>
-          </div>
-
-          <div class="progress-item" data-target="resume-cover-letter">
-            <i class="fa-regular fa-envelope" style="font-size: 20px; color: gray;"></i>
-            <span>Cover Letter Crafting</span>
-            <span>0%</span>
-            <div class="bar">
-              <div style="width:1%"></div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="slider-card">
-          <div class="slider">
-            <div class="slide-left active" id="resume-building">
-              <span class="resume-build">Resume building</span>
-              <h2>Improve your score in 5 mins</h2>
-              <p>Take small steps to improve your resume score. You’ll start getting interviews at 90% or higher.</p>
-              <button>Add employment history <strong>+25%</strong></button>
-            </div>
-            <div class="slide-left" id="resume-tailoring">
-              <span class="resume-build">Resume Tailoring</span>
-              <h2>Tailor your resume for every job</h2>
-              <p>Fine-tune your resume with AI. Match the job description and increase your chances by 78%.</p>
-              <button>Trailor to the Job<strong><i class="fa-solid fa-angle-right"></i></strong></button>
-            </div>
-            <div class="slide-left" id="resume-distribution">
-              <span class="resume-build">Resume Distribution</span>
-              <h2>Match with recruiters hiring now</h2>
-              <p>We’ll match your resume with recruiters looking for people like you. You can see who we’ve sent it to,
-                and where they work.</p>
-              <button>Send to 50 recruiters <strong><i class="fa-solid fa-angle-right"></i></strong></button>
-            </div>
-            <div class="slide-left" id="resume-cover-letter">
-              <span class="resume-build">Cover Letter Crafting</span>
-              <h2>Craft a cover letter</h2>
-              <p>Use AI to generate a strong cover letter in minutes. All we need is the job description.</p>
-              <button>Craft a cover Letter <strong><i class="fa-solid fa-angle-right"></i></strong></button>
-            </div>
-            <div class="slider-right">
-              <img id="sliderImage" src="Image/Dashboad_Hero_Section_1.webp" height="248" width="226">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="dashboard-center">
-        <h1>
-          Your job matches
-        </h1>
-        <p>
-          Not right? Update your
-          <span>Profile</span>
-        </p>
-      </div>
-
-      <div class="no-matches">
-        <div class="no-matches-icon">
-          <img src="Image/dashboard_center_img.png" alt="No match">
-        </div>
-        <h2>We can’t find match yet</h2>
-        <p>Try changing your work preferences, job title or location<br>
-          Or use Job Search to find open roles for yourself.</p>
-        <div class="no-matches-buttons">
-          <button class="btn search">Go to Search</button>
-          <button class="btn change">Change work preferences</button>
+        <div class="submenu">
+          <a href="settings.html" class="submenu-item">Settings</a>
+          <a href="help.html" class="submenu-item">Help</a>
         </div>
       </div>
 
     </div>
-    <script type="module" src="dashboard.js"></script>
+
+
+
+
+    <div class="main-content">
+      <div class="content">
+        <div class="dashboard-header">
+          <h1>Hi Abdul!</h1>
+          <p class="subtitle">What’s your goal today?</p>
+
+          <div class="goal-tabs">
+            <button class="goal active">Resume Building</button>
+            <button class="goal">Job Search</button>
+            <button class="goal">Interview Prep</button>
+            <button class="goal">Learning</button>
+          </div>
+        </div>
+
+        <div class="dashboard-body">
+          <div class="progress-card">
+            <h3>PROGRESS</h3>
+
+            <div class="progress-item active" data-target="resume-building">
+              <i class="fa-solid fa-file-circle-plus" style="font-size: 20px; color: gray;"></i>
+              <span>Resume Building</span>
+              <span class="percentage" data-target="30">0%</span>
+
+              <div class="bar">
+                <div class="progress-fill" data-width="30"></div>
+              </div>
+            </div>
+
+
+            <div class="progress-item" data-target="resume-tailoring">
+              <i class="fa-solid fa-file-pen" style="font-size: 20px; color: gray;"></i>
+              <span>Resume Tailoring</span>
+              <span>0%</span>
+              <div class="bar">
+                <div style="width:1%"></div>
+              </div>
+            </div>
+
+            <div class="progress-item" data-target="resume-distribution">
+              <i class="fa-solid fa-clone" style="font-size: 20px; color: gray;"></i>
+              <span>Resume Distribution</span>
+              <span>0%</span>
+              <div class="bar">
+                <div style="width:1%"></div>
+              </div>
+            </div>
+
+            <div class="progress-item" data-target="resume-cover-letter">
+              <i class="fa-regular fa-envelope" style="font-size: 20px; color: gray;"></i>
+              <span>Cover Letter Crafting</span>
+              <span>0%</span>
+              <div class="bar">
+                <div style="width:1%"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="slider-card">
+            <div class="slider">
+              <div class="slide-left active" id="resume-building">
+                <span class="resume-build">Resume building</span>
+                <h2>Improve your score in 5 mins</h2>
+                <p>Take small steps to improve your resume score. You’ll start getting interviews at 90% or higher.</p>
+                <button>Add employment history <strong>+25%</strong></button>
+              </div>
+              <div class="slide-left" id="resume-tailoring">
+                <span class="resume-build">Resume Tailoring</span>
+                <h2>Tailor your resume for every job</h2>
+                <p>Fine-tune your resume with AI. Match the job description and increase your chances by 78%.</p>
+                <button>Trailor to the Job<strong><i class="fa-solid fa-angle-right"></i></strong></button>
+              </div>
+              <div class="slide-left" id="resume-distribution">
+                <span class="resume-build">Resume Distribution</span>
+                <h2>Match with recruiters hiring now</h2>
+                <p>We’ll match your resume with recruiters looking for people like you. You can see who we’ve sent it
+                  to,
+                  and where they work.</p>
+                <button>Send to 50 recruiters <strong><i class="fa-solid fa-angle-right"></i></strong></button>
+              </div>
+              <div class="slide-left" id="resume-cover-letter">
+                <span class="resume-build">Cover Letter Crafting</span>
+                <h2>Craft a cover letter</h2>
+                <p>Use AI to generate a strong cover letter in minutes. All we need is the job description.</p>
+                <button>Craft a cover Letter <strong><i class="fa-solid fa-angle-right"></i></strong></button>
+              </div>
+              <div class="slider-right">
+                <img id="sliderImage" src="Image/Dashboad_Hero_Section_1.webp" height="248" width="226">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-center">
+          <h1>
+            Your job matches
+          </h1>
+          <p>
+            Not right? Update your
+            <span>Profile</span>
+          </p>
+        </div>
+
+        <div class="no-matches">
+          <div class="no-matches-icon">
+            <img src="Image/dashboard_center_img.png" alt="No match">
+          </div>
+          <h2>We can’t find match yet</h2>
+          <p>Try changing your work preferences, job title or location<br>
+            Or use Job Search to find open roles for yourself.</p>
+          <div class="no-matches-buttons">
+            <button class="btn search">Go to Search</button>
+            <button class="btn change">Change work preferences</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="courses-section">
+        <div class="section-header">
+          <h2>Recommended courses for you</h2>
+          <a href="#" class="explore-link">Explore more →</a>
+        </div>
+
+        <div class="course-wrapper">
+
+          <div class="course-card">
+
+            <div class="course-img">
+              <img src="Image/course_1.jpg" alt="">
+              <span class="tag">IT & Computer Science</span>
+            </div>
+
+            <div class="course-content">
+              <p class="provider">Packt</p>
+              <h3>A Beginner's Guide to Java Programming</h3>
+              <div class="rating">⭐⭐⭐⭐☆ <span>3.5 reviews</span></div>
+
+              <p class="description">
+                Learn the fundamentals of Java programming and improve your test automation processes.
+              </p>
+
+              <div class="extra-info">
+                <span>📅 3 weeks</span>
+                <span>⏰ 2 hours/week</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="course-card">
+
+            <div class="course-img">
+              <img src="Image/course_4.jpg" alt="">
+              <span class="tag">IT & Computer Science</span>
+            </div>
+
+            <div class="course-content">
+              <p class="provider">Packt</p>
+              <h3>A Beginner's Guide To Docker Progress...</h3>
+              <div class="rating">⭐⭐⭐⭐⭐ <span>5.0 reviews</span></div>
+
+              <p class="description">
+                Learn the fundamentals of Java programming and improve your test automation processes.
+              </p>
+
+              <div class="extra-info">
+                <span>📅 4 weeks</span>
+                <span>⏰ 1 hours/week</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="course-card">
+
+            <div class="course-img">
+              <img src="Image/course_3.jpg" alt="">
+              <span class="tag">Business & Management</span>
+            </div>
+
+            <div class="course-content">
+              <p class="provider">Packt</p>
+              <h3>Advance Data Visualisation and Analysis in Excel</h3>
+              <div class="rating">⭐⭐⭐⭐⭐ <span>4.8 reviews</span></div>
+
+              <p class="description">
+                Learn the fundamentals of Java programming and improve your test automation processes.
+              </p>
+
+              <div class="extra-info">
+                <span>📅 2 weeks</span>
+                <span>⏰ 4 hours/week</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="course-card">
+
+            <div class="course-img">
+              <img src="Image/course_2.jpg" alt="">
+              <span class="tag">Business & Management</span>
+            </div>
+
+            <div class="course-content">
+              <p class="provider">Starweaver</p>
+              <h3>Core Principle of Cybersecurity Leadership and Over...</h3>
+              <div class="rating">⭐⭐⭐⭐☆ <span>3.5 reviews</span></div>
+
+              <p class="description">
+                Learn the fundamentals of Java programming and improve your test automation processes.
+              </p>
+
+              <div class="extra-info">
+                <span>📅 1 weeks</span>
+                <span>⏰ 3 hours/week</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="dashboard.js"></script>
 </body>
 
 </html>
