@@ -115,7 +115,7 @@
 }
 
 .menu-item.active {
-  background: #dbe5ff;
+  background: #1e293b;
   border-radius: 8px;
   font-weight: bold;
 }
@@ -133,7 +133,7 @@
 }
 
 .sidebar .submenu .menu-item {
-  padding: 8px 20px;
+  padding: 8px 20x;
   font-size: 14px;
   background-color: #e6ecff;
 }
@@ -141,7 +141,7 @@
 .submenu .menu-item,
 .submenu a {
   display: block;
-  padding: 10px 15px;
+  padding: 10px 16px;
   text-decoration: none;
   color: #333;
   font-size: 14px;
@@ -149,9 +149,9 @@
 
 
 .sidebar .menu-item.active {
-  background-color: #c6daff;
-  font-weight: bold;
-  color: #4c8bf5;
+  font-weight: 300;
+  background: #1e293b;
+  color: white;
 }
 
 .sidebar .new-badge {
@@ -640,6 +640,33 @@ button strong {
   margin-top: 15px;
 }
 
+#resumeContent,
+#coverContent {
+  transition: opacity 0.3s ease;
+}
+
+#resumeContent[style*="display: none"],
+#coverContent[style*="display: none"] {
+  opacity: 0;
+}
+
+
+.menu-item.active {
+  background: transparent;
+}
+
+.menu-item:has(.submenu-item.active) {
+  background: #1e293b;
+  color: white;
+  border-radius: 8px;
+}
+
+.submenu-item.active {
+  background: #1e293b;
+  color: white;
+  font-weight: 600;
+  border-left: 4px solid white;
+}
 
 .menu-item {
   position: relative;
@@ -662,12 +689,13 @@ button strong {
   width: 160px;
   /* display: none; */
   flex-direction: column;
-  border-radius: 6px;
+  border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   opacity: 0;
   transform: translateX(10px);
   transition: all 0.25s ease;
   z-index: 1000;
+  border: 1px solid lightgray
 }
 
 /* Show on hover */
@@ -679,7 +707,7 @@ button strong {
 
 .submenu .menu-item:hover,
 .submenu a:hover {
-  background: #eaf6ff;
+  background: #e6ecff;
   color: #007bff;
 }
 
@@ -694,10 +722,251 @@ button strong {
   background: #e6ecff;
 }
 
+.main-content {
+  margin-left: 205px;
+  padding: 80px 30px;
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-header h1 {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.create-btn {
+  background: #2b6cb0;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.create-btn:hover {
+  background: #1e4f8a;
+}
+
+.tabs {
+  margin-top: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabs span {
+  margin-right: 25px;
+  padding-bottom: 8px;
+  cursor: pointer;
+  color: gray;
+  font-weight: 500;
+}
+
+.active-tab {
+  color: #2b6cb0;
+  border-bottom: 2px solid #2b6cb0;
+}
+
+.info-box {
+  background: #e6f0fb;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-left {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.emoji-box {
+  background: #ffd966;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+.start-btn {
+  padding: 8px 16px;
+  border: 1px solid #2b6cb0;
+  background: white;
+  color: #2b6cb0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.start-btn:hover {
+  background: #2b6cb0;
+  color: white;
+}
+
+.resume-section {
+  display: flex;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+.resume-card {
+  display: flex;
+  gap: 20px;
+}
+
+.resume-preview {
+  width: 200px;
+  height: 260px;
+  background: #e2e8f0;
+  border-radius: 6px;
+}
+
+.resume-details h2 {
+  font-size: 22px;
+}
+
+.update-text {
+  font-size: 14px;
+  color: gray;
+  margin: 5px 0 15px;
+}
+
+.score-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.score-badge {
+  background: #f56565;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.resume-actions {
+  list-style: none;
+  padding: 0;
+}
+
+.resume-actions li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.resume-actions li i {
+  margin-right: 8px;
+  color: #2b6cb0;
+}
+
+/* New Resume */
+.new-resume-card {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.plus-box {
+  width: 200px;
+  height: 260px;
+  background: #edf2f7;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: #a0aec0;
+}
+
+.new-text h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.new-text p {
+  color: gray;
+  max-width: 250px;
+}
+
+.text-change h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.new-text {
+  align-self: flex-start;
+}
 
 
 
 @media (max-width: 768px) {
+  .emoji-box {
+    background: #ffd966;
+    padding: 6px;
+    border-radius: 50%;
+    font-size: 15px;
+  }
+
+  .text-change h3 {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  .text-change p {
+    font-size: 12px;
+  }
+
+  .info-box {
+    padding: 5px;
+  }
+
+  .resume-details h2 {
+    font-size: 13px;
+  }
+
+  .score-badge {
+    padding: 2px 7px;
+  }
+
+  .new-text p {
+    font-size: 13px;
+  }
+
+
+  .new-text h3 {
+    font-size: 18px;
+  }
+
+  .start-btn {
+    display: none;
+  }
+
+  .page-header h1 {
+    font-size: 18px;
+  }
+
+  .tabs span {
+    font-size: 14px;
+  }
+
+  .create-btn {
+    background: #2b6cb0;
+    color: white;
+    border: none;
+    padding: 9px 8px;
+  }
+
+  .main-content {
+    margin-left: 30px;
+  }
+
   .dashboard-center {
     flex-direction: column;
     gap: 15px;
@@ -828,7 +1097,7 @@ button strong {
 
   .courses-container {
     grid-template-columns: 1fr;
-    /* single column */
+
     gap: 15px;
   }
 
@@ -868,6 +1137,10 @@ button strong {
     text-align: center;
     margin-bottom: 20px;
   }
+
+  #display_none {
+    display: none;
+  }
 }
 
 
@@ -877,6 +1150,10 @@ button strong {
     flex-direction: column;
     gap: 10px;
     margin-left: 48px;
+  }
+
+  .new-text {
+    align-self: center;
   }
 
   .course-wrapper {
@@ -941,7 +1218,36 @@ button strong {
     margin-left: 48px;
   }
 
+  .main-content {
+    margin-left: 220px;
+    padding: 30px;
+  }
+
+  .resume-section {
+    gap: 40px;
+  }
+
+  .resume-preview,
+  .plus-box {
+    width: 170px;
+    height: 230px;
+  }
+
 }
+
+@media (max-width: 900px) {
+
+  .resume-section {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .new-resume-card {
+    flex-direction: row;
+  }
+
+}
+
 
 
 @media (min-width: 1024px) and (max-width: 1380px) {

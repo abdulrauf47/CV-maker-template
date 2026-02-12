@@ -12,134 +12,177 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  // ===== Profile Dropdown =====
   const profileImg = document.getElementById("profileImg");
   const profileDropdown = document.getElementById("profileDropdown");
-  const logoutBtn = document.getElementById("logoutBtn"); // ✅ Already defined
+  const logoutBtn = document.getElementById("logoutBtn");
 
-  // profile image click
-  profileImg.addEventListener("click", (e) => {
-    e.stopPropagation();
-    profileDropdown.classList.toggle("show");
-  });
+  if (profileImg && profileDropdown) {
+    profileImg.addEventListener("click", e => {
+      e.stopPropagation();
+      profileDropdown.classList.toggle("show");
+    });
 
-  // outside click
-  document.addEventListener("click", () => {
-    profileDropdown.classList.remove("show");
-  });
+    document.addEventListener("click", () => {
+      profileDropdown.classList.remove("show");
+    });
+  }
 
-  // LOGOUT
-  logoutBtn.addEventListener("click", () => {
-    signOut(auth)
-      .then(() => {
-        localStorage.removeItem("isLoggedIn"); // optional
-        window.location.href = "index.html";
-      })
-      .catch((error) => {
-        alert(error.message);
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      signOut(auth)
+        .then(() => {
+          localStorage.removeItem("isLoggedIn");
+          window.location.href = "index.html";
+        })
+        .catch(error => alert(error.message));
+    });
+  }
+
+  // ===== Menu Items =====
+  const menuItems = document.querySelectorAll(".menu-item");
+  if (menuItems) {
+    menuItems.forEach(item => {
+      item.addEventListener("click", () => {
+        if (!item.classList.contains("has-submenu")) {
+          menuItems.forEach(i => i.classList.remove("active"));
+          item.classList.add("active");
+        }
       });
-  });
-});
+    });
+  }
 
-const menuItems = document.querySelectorAll(".menu-item");
+  // ===== Progress Items =====
+  const progressItems = document.querySelectorAll(".progress-item");
+  const slides = document.querySelectorAll(".slide-left");
 
-menuItems.forEach(item => {
-  item.addEventListener("click", () => {
-    // sab se active class remove karo
-    menuItems.forEach(i => i.classList.remove("active"));
+  if (progressItems.length && slides.length) {
+    progressItems.forEach(item => {
+      item.addEventListener("click", () => {
+        progressItems.forEach(i => i.classList.remove("active"));
+        item.classList.add("active");
 
-    // jis par click hua usko active karo
-    item.classList.add("active");
-  });
-});
+        slides.forEach(s => s.classList.remove("active"));
+        const target = item.dataset.target;
+        const targetEl = document.getElementById(target);
+        if (targetEl) targetEl.classList.add("active");
 
+        // Update slider image if exists
+        const sliderImage = document.getElementById("sliderImage");
+        const images = {
+          "resume-building": "Image/Dashboad_Hero_Section_1.webp",
+          "resume-tailoring": "Image/Dashboad_Hero_Section_2.png",
+          "resume-distribution": "Image/Dashboad_Hero_Section_3.png",
+          "resume-cover-letter": "Image/Dashboad_Hero_Section_4.png"
+        };
+        if (sliderImage && images[target]) sliderImage.src = images[target];
+      });
+    });
+  }
 
-const progressItems = document.querySelectorAll(".progress-item");
-const slides = document.querySelectorAll(".slide-left");
-
-progressItems.forEach(item => {
-  item.addEventListener("click", () => {
-
-    // left active
-    progressItems.forEach(i => i.classList.remove("active"));
-    item.classList.add("active");
-
-    // right content
-    slides.forEach(s => s.classList.remove("active"));
-    const target = item.dataset.target;
-    document.getElementById(target).classList.add("active");
-
-  });
-});
-
-const sliderImage = document.getElementById("sliderImage");
-
-// Map of images for each slide
-const images = {
-  "resume-building": "Image/Dashboad_Hero_Section_1.webp",
-  "resume-tailoring": "Image/Dashboad_Hero_Section_2.png",
-  "resume-distribution": "Image/Dashboad_Hero_Section_3.png",
-  "resume-cover-letter": "Image/Dashboad_Hero_Section_4.png"
-};
-
-// By default, show first slide + image
-slides.forEach(s => s.classList.remove("active")); // remove all active
-slides[0].classList.add("active");
-sliderImage.src = images["resume-building"];
-
-// Click event
-progressItems.forEach(item => {
-  item.addEventListener("click", () => {
-
-    // Left tab active
-    progressItems.forEach(i => i.classList.remove("active"));
-    item.classList.add("active");
-
-    // Right slide content active
-    slides.forEach(s => s.classList.remove("active"));
-    const target = item.dataset.target;
-    document.getElementById(target).classList.add("active");
-
-    // Change image according to clicked item
-    sliderImage.src = images[target];
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-
+  // ===== Progress Counter =====
   const counter = document.querySelector(".percentage");
   const bar = document.querySelector(".progress-fill");
+  if (counter && bar) {
+    const target = +counter.getAttribute("data-target");
+    const barWidth = bar.getAttribute("data-width");
+    let count = 0;
 
-  const target = +counter.getAttribute("data-target");
-  const barWidth = bar.getAttribute("data-width");
+    const updateCounter = () => {
+      if (count < target) {
+        count++;
+        counter.innerText = count + "%";
+        setTimeout(updateCounter, 20);
+      } else {
+        counter.innerText = target + "%";
+      }
+    };
 
-  let count = 0;
+    counter.innerText = "0%";
+    bar.style.width = "0%";
 
-  const updateCounter = () => {
+    setTimeout(() => {
+      bar.style.transition = "width 1.5s ease";
+      bar.style.width = barWidth + "%";
+    }, 100);
 
-    if (count < target) {
-      count++;
-      counter.innerText = count + "%";
-      setTimeout(updateCounter, 20); // speed
-    } else {
-      counter.innerText = target + "%";
-    }
+    updateCounter();
+  }
 
-  };
+  // ===== Export DOCX =====
+  const exportBtn = document.getElementById("exportDocx");
+  const fileInput = document.getElementById("fileInput");
+  if (exportBtn && fileInput) {
+    exportBtn.addEventListener("click", () => fileInput.click());
+  }
 
-  // Start from 0
-  counter.innerText = "0%";
-  bar.style.width = "0%";
+  // ===== Tabs: Resume / Cover Letter =====
+  const resumeTab = document.getElementById("resumeTab");
+  const coverTab = document.getElementById("coverTab");
+  const resumeContent = document.getElementById("resumeContent");
+  const coverContent = document.getElementById("coverContent");
 
-  // Animate bar
-  setTimeout(() => {
-    bar.style.transition = "width 1.5s ease";
-    bar.style.width = barWidth + "%";
-  }, 100);
+  if (resumeTab && coverTab && resumeContent && coverContent) {
+    resumeTab.addEventListener("click", () => {
+      resumeTab.classList.add("active-tab");
+      coverTab.classList.remove("active-tab");
+      resumeContent.style.display = "block";
+      coverContent.style.display = "none";
+    });
 
-  // Animate number
-  updateCounter();
+    coverTab.addEventListener("click", () => {
+      coverTab.classList.add("active-tab");
+      resumeTab.classList.remove("active-tab");
+      coverContent.style.display = "block";
+      resumeContent.style.display = "none";
+    });
+  }
 
 });
 
+
+const resumeTab = document.getElementById("resumeTab");
+const coverTab = document.getElementById("coverTab");
+
+const resumeContent = document.getElementById("resumeContent");
+const coverContent = document.getElementById("coverContent");
+
+resumeTab.addEventListener("click", () => {
+  resumeTab.classList.add("active-tab");
+  coverTab.classList.remove("active-tab");
+  resumeContent.style.display = "block";
+  coverContent.style.display = "none";
+});
+
+coverTab.addEventListener("click", () => {
+  coverTab.classList.add("active-tab");
+  resumeTab.classList.remove("active-tab");
+  coverContent.style.display = "block";
+  resumeContent.style.display = "none";
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const resumeTab = document.getElementById("resumeTab");
+  const coverTab = document.getElementById("coverTab");
+
+  const resumeContent = document.getElementById("resumeContent");
+  const coverContent = document.getElementById("coverContent");
+
+  resumeTab.addEventListener("click", () => {
+    resumeTab.classList.add("active-tab");
+    coverTab.classList.remove("active-tab");
+
+    resumeContent.style.display = "block";
+    coverContent.style.display = "none";
+  });
+
+  coverTab.addEventListener("click", () => {
+    coverTab.classList.add("active-tab");
+    resumeTab.classList.remove("active-tab");
+
+    coverContent.style.display = "block";
+    resumeContent.style.display = "none";
+  });
+});
 

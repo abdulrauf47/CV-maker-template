@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobs</title>
+    <link rel="stylesheet" href="jobs.css">
     <link rel="stylesheet" href="dashboard.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
@@ -35,12 +36,12 @@
         <div class="menu-item has-submenu">
             <i class="fas fa-file-alt"></i>
             <span class="text">Document</span>
-            <i class="fa-solid fa-angle-right arrow" style="margin-left:auto;font-size: 10px;"></i>
+            <i class="fa-solid fa-angle-right arrow" id="display_none" style="margin-left:auto;font-size: 10px;"></i>
 
             <div class="submenu">
-                <a href="resume.html" class="submenu-item">My Resume</a>
-                <a href="cover.html" class="submenu-item">My Cover Letter</a>
-                <a href="hire.html" class="submenu-item">Hire Resume Writer</a>
+                <a href="document.html" class="submenu-item">My Resume</a>
+                <a href="document.html" class="submenu-item">My Cover Letter</a>
+                <a href="document.html" class="submenu-item">Hire Resume Writer</a>
             </div>
         </div>
 
@@ -81,7 +82,7 @@
         <div class="menu-item has-submenu">
             <i class="fa-solid fa-magnifying-glass"></i>
             <span class="text">Job Search Method</span>
-            <i class="fa-solid fa-angle-right arrow" style="margin-left:auto;font-size: 10px;"></i>
+            <i class="fa-solid fa-angle-right arrow" id="display_none" style="margin-left:auto;font-size: 10px;"></i>
 
             <div class="submenu">
                 <a href="settings.html" class="submenu-item">Master Plan</a>
@@ -100,7 +101,7 @@
         <div class="menu-item has-submenu">
             <i class="fas fa-ellipsis-h"></i>
             <span class="text">Other</span>
-            <i class="fa-solid fa-angle-right arrow" style="margin-left:auto;font-size: 10px;"></i>
+            <i class="fa-solid fa-angle-right arrow" id="display_none" style="margin-left:auto;font-size: 10px;"></i>
 
             <div class="submenu">
                 <a href="settings.html" class="submenu-item">Settings</a>
@@ -108,6 +109,65 @@
             </div>
         </div>
     </div>
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <!-- Top Search Bar -->
+        <div class="job-search-bar">
+            <div class="input-box">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="Job title or company">
+            </div>
+
+            <div class="input-box">
+                <i class="fa fa-location-dot"></i>
+                <input type="text" placeholder="Location">
+            </div>
+
+            <button class="find-job-btn">Find jobs</button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="job-tabs">
+            <div class="tab active">Recommended Jobs</div>
+            <div class="tab">Search (537)</div>
+
+            <div class="right-side">
+                <i class="fa-regular fa-heart"></i>
+                <span class="heart-count">0</span>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="job-filters">
+            <button class="filter-btn"><i class="fa fa-xmark"></i></button>
+            <button class="filter-btn">Any location type <i class="fa fa-angle-down"></i></button>
+            <button class="filter-btn">Any contract type <i class="fa fa-angle-down"></i></button>
+            <button class="filter-btn">Posted anytime <i class="fa fa-angle-down"></i></button>
+
+            <div class="create-alert">
+                <i class="fa-regular fa-bell"></i> Create job alert
+            </div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-box">
+            <i class="fa-solid fa-gear big-icon"></i>
+            <h2>We can’t find match yet</h2>
+            <p>
+                Try changing your work preferences, job title or location<br>
+                Or use Job Search to find open roles for yourself.
+            </p>
+
+            <div class="action-buttons">
+                <button class="btn-secondary">Go to Search</button>
+                <button class="btn-primary">Change work preferences</button>
+            </div>
+        </div>
+
+    </div>
+
+
     <script src="dashboard.js"></script>
 </body>
 

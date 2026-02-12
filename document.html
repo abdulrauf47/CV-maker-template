@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documennt</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">My Dashboard</div>
+
+        <div class="profile-wrapper">
+            <img src="Image/WhatsApp Image 2025-10-21 at 7.03.30 PM.jpeg" alt="User" id="profileImg"
+                class="profile-img" />
+
+            <div class="profile-dropdown" id="profileDropdown">
+                <p><strong>Name:</strong> Abdul Rauf</p>
+                <p><strong>Email:</strong> user@email.com</p>
+                <hr />
+                <button id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <div class="sidebar">
+        <a href="dashboard.html" style="text-decoration: none;">
+            <div class="menu-item" data-content="dashboard"><i class="fa-solid fa-grip-vertical"></i>
+                <span class="text">Dashboard</span>
+            </div>
+        </a>
+
+        <div class="menu-item has-submenu">
+            <i class="fas fa-file-alt"></i>
+            <span class="text">Document</span>
+            <i class="fa-solid fa-angle-right arrow" id="display_none" style="margin-left:auto;font-size: 10px;"></i>
+
+            <div class="submenu">
+                <a href="document.html" class="submenu-item active">My Resume</a>
+                <a href="documen.html" class="submenu-item">My Cover Letter</a>
+                <a href="documet.html" class="submenu-item">Hire Resume Writer</a>
+            </div>
+        </div>
+
+        <a href="jobs.html" style="text-decoration: none;">
+            <div class="menu-item" data-content="jobs"><i class="fas fa-briefcase"></i>
+                <span class="text">Jobs</span>
+            </div>
+        </a>
+
+        <a href="job_tracker.html" style="text-decoration: none;">
+            <div class="menu-item" data-content="job_tracker"><i class="fas fa-tasks"></i> <span class="text">Job
+                    Tracker</span></div>
+        </a>
+
+        <a href="interview.html" style="text-decoration: none;">
+            <div class="menu-item" data-content="interview"><i class="fas fa-user-graduate"></i><span
+                    class="text">Interview
+                    Prep</span></div>
+        </a>
+
+        <a href="analysis.HTML" style="text-decoration: none;">
+            <div class="menu-item" data-content="analysis"><i class="fas fa-chart-pie"></i><span class="text">Salary
+                    Ananlyzer</span></div>
+        </a>
+
+        <a href="distribution.html" style="text-decoration: none;">
+            <div class="menu-item" data-content="distribution"><i class="fas fa-share-alt"></i><span class="text">Resume
+                    Distribution</span></div>
+        </a>
+
+        <a href="unlimited.html" style="text-decoration: none;">
+            <div class="menu-item" data-content="unlimited"><i class="fas fa-graduation-cap"></i><span
+                    class="text">Unlimited
+                    Learning</span><span class="new-badge">NEW</span>
+            </div>
+        </a>
+
+        <div class="menu-item has-submenu">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span class="text">Job Search Method</span>
+            <i class="fa-solid fa-angle-right arrow" id="display_none" style="margin-left:auto;font-size: 10px;"></i>
+
+            <div class="submenu">
+                <a href="settings.html" class="submenu-item">Master Plan</a>
+                <a href="help.html" class="submenu-item">Brand Yourself</a>
+                <a href="settings.html" class="submenu-item">Get More Metting </a>
+                <a href="help.html" class="submenu-item">Interview and Win</a>
+                <a href="settings.html" class="submenu-item">Close the Deal</a>
+            </div>
+        </div>
+
+        <a href="coaching.html" style="text-decoration: none;">
+            <div class="menu-item" data-content="coaching"><i class="fas fa-chalkboard-teacher"></i><span
+                    class="text">Coaching</span></div>
+        </a>
+
+        <div class="menu-item has-submenu">
+            <i class="fas fa-ellipsis-h"></i>
+            <span class="text">Other</span>
+            <i class="fa-solid fa-angle-right arrow" id="display_none" style="margin-left:auto;font-size: 10px;"></i>
+
+            <div class="submenu">
+                <a href="settings.html" class="submenu-item">Settings</a>
+                <a href="help.html" class="submenu-item">Help</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h1>Resumes & Cover Letters</h1>
+            <a href="maker.html">
+                <button class="create-btn">
+                    <i class="fas fa-plus"></i> Create New
+                </button>
+            </a>
+        </div>
+
+        <div class="tabs">
+            <span class="tab active-tab" id="resumeTab">Resumes</span>
+            <span class="tab" id="coverTab">Cover Letters</span>
+        </div>
+        <div class="info-box">
+            <div class="info-left">
+                <div class="emoji-box">😊</div>
+                <div class="text-change">
+                    <h3>Ready to give your job search a boost and get more exposure?</h3>
+                    <p>Choose your resume and we'll send it to hundreds of recruiters in your field in just a few clicks
+                    </p>
+                </div>
+            </div>
+            <button class="start-btn">Start Now</button>
+        </div>
+
+
+        <div id="coverContent" style="display:none;">
+            <div class="resume-section">
+
+                <div class="resume-card">
+                    <div class="resume-preview"></div>
+
+                    <div class="resume-details">
+                        <h2>Untitled <i class="fas fa-pen edit-icon"></i></h2>
+                        <p class="update-text">Updated 5 January, 18:37</p>
+
+                        <div class="score-box">
+                            <span class="score-badge">30%</span>
+                            <span>Your resume score</span>
+                        </div>
+
+                        <ul class="resume-actions">
+                            <li><i class="fas fa-bullseye"></i> Tailor to job listing</li>
+                            <li><i class="fas fa-download"></i> Download PDF</li>
+                            <li id="exportDocx">
+                                <i class="fas fa-file-word"></i> Export to DOCX
+                            </li>
+
+                            <input type="file" id="fileInput" hidden accept=".doc,.docx">
+                            <li><i class="fas fa-file-alt"></i> Export to TXT</li>
+                            <li><i class="fas fa-ellipsis-h"></i> More</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="new-resume-card">
+                    <a href="maker.html" style="text-decoration: none;">
+                        <div class="plus-box">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </a>
+
+                    <div class="new-text">
+                        <h3>New Resume</h3>
+                        <p>Create a tailored resume for each job application. Double your chances of getting hired!</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="resumeContent">
+    <div class="resume-section">
+        <div class="resume-card">
+            <div class="resume-preview"></div>
+            <div class="resume-details">
+                <h2>Untitled <i class="fas fa-pen edit-icon"></i></h2>
+                <p class="update-text">Updated 5 January, 18:37</p>
+
+                <div class="score-box">
+                    <span class="score-badge">30%</span>
+                    <span>Your resume score</span>
+                </div>
+
+                <ul class="resume-actions">
+                    <li><i class="fas fa-bullseye"></i> Tailor to job listing</li>
+                    <li><i class="fas fa-download"></i> Download PDF</li>
+                    <li id="exportDocx"><i class="fas fa-file-word"></i> Export to DOCX</li>
+                    <input type="file" id="fileInput" hidden accept=".doc,.docx">
+                    <li><i class="fas fa-file-alt"></i> Export to TXT</li>
+                    <li><i class="fas fa-ellipsis-h"></i> More</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="new-resume-card">
+            <a href="maker.html" style="text-decoration: none;">
+                <div class="plus-box">
+                    <i class="fas fa-plus"></i>
+                </div>
+            </a>
+            <div class="new-text">
+                <h3>New Resume</h3>
+                <p>Create a tailored resume for each job application. Double your chances of getting hired!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+    <script type="module" src="dashboard.js"></script>
+</body>
+
+</html>
