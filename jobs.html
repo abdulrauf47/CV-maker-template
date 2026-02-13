@@ -109,66 +109,75 @@
             </div>
         </div>
     </div>
-    <!-- MAIN CONTENT -->
+
     <div class="main-content">
 
-        <!-- Top Search Bar -->
-        <div class="job-search-bar">
-            <div class="input-box">
-                <i class="fa fa-search"></i>
-                <input type="text" placeholder="Job title or company">
-            </div>
-
-            <div class="input-box">
-                <i class="fa fa-location-dot"></i>
-                <input type="text" placeholder="Location">
-            </div>
-
-            <button class="find-job-btn">Find jobs</button>
+        <div id="contentLoader">
+            <div class="spinner"></div>
+            <p>Loading, please wait...</p>
         </div>
 
-        <!-- Tabs -->
-        <div class="job-tabs">
-            <div class="tab active">Recommended Jobs</div>
-            <div class="tab">Search (537)</div>
+        <div id="realContent">
 
-            <div class="right-side">
-                <i class="fa-regular fa-heart"></i>
-                <span class="heart-count">0</span>
+            <!-- Top Search Bar -->
+            <div class="job-search-bar">
+                <div class="input-box">
+                    <i class="fa fa-search"></i>
+                    <input type="text" placeholder="Job title or company">
+                </div>
+
+                <div class="input-box">
+                    <i class="fa fa-location-dot"></i>
+                    <input type="text" placeholder="Location">
+                </div>
+
+                <button class="find-job-btn">Find jobs</button>
             </div>
+
+            <!-- Tabs -->
+            <div class="job-tabs">
+                <div class="tab active">Recommended Jobs</div>
+                <div class="tab">Search (537)</div>
+
+                <div class="right-side">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="heart-count">0</span>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="job-filters">
+                <button class="filter-btn"><i class="fa fa-xmark"></i></button>
+                <button class="filter-btn">Any location type <i class="fa fa-angle-down"></i></button>
+                <button class="filter-btn">Any contract type <i class="fa fa-angle-down"></i></button>
+                <button class="filter-btn">Posted anytime <i class="fa fa-angle-down"></i></button>
+
+                <div class="create-alert">
+                    <i class="fa-regular fa-bell"></i> Create job alert
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-box">
+                <i class="fa-solid fa-gear big-icon"></i>
+                <h2>We can’t find match yet</h2>
+                <p>
+                    Try changing your work preferences, job title or location<br>
+                    Or use Job Search to find open roles for yourself.
+                </p>
+
+                <div class="action-buttons">
+                    <button class="btn-secondary">Go to Search</button>
+                    <button class="btn-primary">Change work preferences</button>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Filters -->
-        <div class="job-filters">
-            <button class="filter-btn"><i class="fa fa-xmark"></i></button>
-            <button class="filter-btn">Any location type <i class="fa fa-angle-down"></i></button>
-            <button class="filter-btn">Any contract type <i class="fa fa-angle-down"></i></button>
-            <button class="filter-btn">Posted anytime <i class="fa fa-angle-down"></i></button>
-
-            <div class="create-alert">
-                <i class="fa-regular fa-bell"></i> Create job alert
-            </div>
         </div>
 
-        <!-- Empty State -->
-        <div class="empty-box">
-            <i class="fa-solid fa-gear big-icon"></i>
-            <h2>We can’t find match yet</h2>
-            <p>
-                Try changing your work preferences, job title or location<br>
-                Or use Job Search to find open roles for yourself.
-            </p>
 
-            <div class="action-buttons">
-                <button class="btn-secondary">Go to Search</button>
-                <button class="btn-primary">Change work preferences</button>
-            </div>
-        </div>
-
-    </div>
-
-
-    <script src="dashboard.js"></script>
+    <script type="module" src="dashboard.js"></script>
 </body>
 
-</html>
+</html> 

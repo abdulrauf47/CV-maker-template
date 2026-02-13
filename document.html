@@ -109,116 +109,126 @@
         </div>
     </div>
 
-    <div class="main-content">
-        <div class="page-header">
-            <h1>Resumes & Cover Letters</h1>
-            <a href="maker.html">
-                <button class="create-btn">
-                    <i class="fas fa-plus"></i> Create New
-                </button>
-            </a>
-        </div>
+    <div id="contentLoader">
+        <div class="spinner"></div>
+        <p>Loading, please wait...</p>
+    </div>
 
-        <div class="tabs">
-            <span class="tab active-tab" id="resumeTab">Resumes</span>
-            <span class="tab" id="coverTab">Cover Letters</span>
-        </div>
-        <div class="info-box">
-            <div class="info-left">
-                <div class="emoji-box">😊</div>
-                <div class="text-change">
-                    <h3>Ready to give your job search a boost and get more exposure?</h3>
-                    <p>Choose your resume and we'll send it to hundreds of recruiters in your field in just a few clicks
-                    </p>
-                </div>
+    <div id="realContent">
+        <div class="main-content">
+            <div class="page-header">
+                <h1>Resumes & Cover Letters</h1>
+                <a href="maker.html">
+                    <button class="create-btn">
+                        <i class="fas fa-plus"></i> Create New
+                    </button>
+                </a>
             </div>
-            <button class="start-btn">Start Now</button>
-        </div>
 
-
-        <div id="coverContent" style="display:none;">
-            <div class="resume-section">
-
-                <div class="resume-card">
-                    <div class="resume-preview"></div>
-
-                    <div class="resume-details">
-                        <h2>Untitled <i class="fas fa-pen edit-icon"></i></h2>
-                        <p class="update-text">Updated 5 January, 18:37</p>
-
-                        <div class="score-box">
-                            <span class="score-badge">30%</span>
-                            <span>Your resume score</span>
-                        </div>
-
-                        <ul class="resume-actions">
-                            <li><i class="fas fa-bullseye"></i> Tailor to job listing</li>
-                            <li><i class="fas fa-download"></i> Download PDF</li>
-                            <li id="exportDocx">
-                                <i class="fas fa-file-word"></i> Export to DOCX
-                            </li>
-
-                            <input type="file" id="fileInput" hidden accept=".doc,.docx">
-                            <li><i class="fas fa-file-alt"></i> Export to TXT</li>
-                            <li><i class="fas fa-ellipsis-h"></i> More</li>
-                        </ul>
+            <div class="tabs">
+                <span class="tab active-tab" id="resumeTab">Resumes</span>
+                <span class="tab" id="coverTab">Cover Letters</span>
+            </div>
+            <div class="info-box">
+                <div class="info-left">
+                    <div class="emoji-box">😊</div>
+                    <div class="text-change">
+                        <h3>Ready to give your job search a boost and get more exposure?</h3>
+                        <p>Choose your resume and we'll send it to hundreds of recruiters in your field in just a few
+                            clicks
+                        </p>
                     </div>
                 </div>
+                <button class="start-btn">Start Now</button>
+            </div>
 
-                <div class="new-resume-card">
-                    <a href="maker.html" style="text-decoration: none;">
-                        <div class="plus-box">
-                            <i class="fas fa-plus"></i>
+
+            <div id="coverContent" style="display:none;">
+                <div class="resume-section">
+
+                    <div class="resume-card">
+                        <div class="resume-preview"></div>
+
+                        <div class="resume-details">
+                            <h2>Untitled <i class="fas fa-pen edit-icon"></i></h2>
+                            <p class="update-text">Updated 5 January, 18:37</p>
+
+                            <div class="score-box">
+                                <span class="score-badge">30%</span>
+                                <span>Your resume score</span>
+                            </div>
+
+                            <ul class="resume-actions">
+                                <li><i class="fas fa-bullseye"></i> Tailor to job listing</li>
+                                <li><i class="fas fa-download"></i> Download PDF</li>
+                                <li id="exportDocx">
+                                    <i class="fas fa-file-word"></i> Export to DOCX
+                                </li>
+
+                                <input type="file" id="fileInput" hidden accept=".doc,.docx">
+                                <li><i class="fas fa-file-alt"></i> Export to TXT</li>
+                                <li><i class="fas fa-ellipsis-h"></i> More</li>
+                            </ul>
                         </div>
-                    </a>
+                    </div>
 
-                    <div class="new-text">
-                        <h3>New Resume</h3>
-                        <p>Create a tailored resume for each job application. Double your chances of getting hired!</p>
+                    <div class="new-resume-card">
+                        <a href="maker.html" style="text-decoration: none;">
+                            <div class="plus-box">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </a>
+
+                        <div class="new-text">
+                            <h3>New Resume</h3>
+                            <p>Create a tailored resume for each job application. Double your chances of getting hired!
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="resumeContent">
+                <div class="resume-section">
+                    <div class="resume-card">
+                        <div class="resume-preview"></div>
+                        <div class="resume-details">
+                            <h2>Untitled <i class="fas fa-pen edit-icon"></i></h2>
+                            <p class="update-text">Updated 5 January, 18:37</p>
+
+                            <div class="score-box">
+                                <span class="score-badge">30%</span>
+                                <span>Your resume score</span>
+                            </div>
+
+                            <ul class="resume-actions">
+                                <li><i class="fas fa-bullseye"></i> Tailor to job listing</li>
+                                <li><i class="fas fa-download"></i> Download PDF</li>
+                                <li id="exportDocx"><i class="fas fa-file-word"></i> Export to DOCX</li>
+                                <input type="file" id="fileInput" hidden accept=".doc,.docx">
+                                <li><i class="fas fa-file-alt"></i> Export to TXT</li>
+                                <li><i class="fas fa-ellipsis-h"></i> More</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="new-resume-card">
+                        <a href="maker.html" style="text-decoration: none;">
+                            <div class="plus-box">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </a>
+                        <div class="new-text">
+                            <h3>New Resume</h3>
+                            <p>Create a tailored resume for each job application. Double your chances of getting hired!
+                            </p>
+                        </div>
                     </div>
                 </div>
-
-            </div>
-        </div>
-        <div id="resumeContent">
-    <div class="resume-section">
-        <div class="resume-card">
-            <div class="resume-preview"></div>
-            <div class="resume-details">
-                <h2>Untitled <i class="fas fa-pen edit-icon"></i></h2>
-                <p class="update-text">Updated 5 January, 18:37</p>
-
-                <div class="score-box">
-                    <span class="score-badge">30%</span>
-                    <span>Your resume score</span>
-                </div>
-
-                <ul class="resume-actions">
-                    <li><i class="fas fa-bullseye"></i> Tailor to job listing</li>
-                    <li><i class="fas fa-download"></i> Download PDF</li>
-                    <li id="exportDocx"><i class="fas fa-file-word"></i> Export to DOCX</li>
-                    <input type="file" id="fileInput" hidden accept=".doc,.docx">
-                    <li><i class="fas fa-file-alt"></i> Export to TXT</li>
-                    <li><i class="fas fa-ellipsis-h"></i> More</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="new-resume-card">
-            <a href="maker.html" style="text-decoration: none;">
-                <div class="plus-box">
-                    <i class="fas fa-plus"></i>
-                </div>
-            </a>
-            <div class="new-text">
-                <h3>New Resume</h3>
-                <p>Create a tailored resume for each job application. Double your chances of getting hired!</p>
             </div>
         </div>
     </div>
-</div>
 
-    </div>
 
 
     <script type="module" src="dashboard.js"></script>

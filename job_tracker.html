@@ -7,6 +7,7 @@
     <title>Job Tracker</title>
     <link rel="stylesheet" href="dashboard.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="job_tracker.css">
 </head>
 
 <body>
@@ -108,7 +109,104 @@
             </div>
         </div>
     </div>
-    <script src="dashboard.js"></script>
+    <div id="contentLoader">
+        <div class="spinner"></div>
+        <p>Loading, please wait...</p>
+    </div>
+
+    <div id="realContent">
+        <div class="main-content-tracker">
+
+            <div class="job-tabs">
+                <div class="board-header tab active">
+                    <h2><i class="fa-solid fa-border-all"></i> Board</h2>
+                </div>
+            </div>
+
+            <div class="board-wrapper">
+
+                <div class="board-column shortlist">
+                    <div class="column-header">❤️ Shortlist <i class="fa-solid fa-plus add-job" style="cursor: pointer; padding: 0; color: black; background-color: none; border: none; "></i></div>
+
+                    <div class="dropdown-box">
+                        <input type="text" placeholder="Enter a company name..." />
+                        <div class="actions">
+                            <button class="continue">Continue</button>
+                            <button class="cancel">Cancel</button>
+                        </div>
+                    </div>
+
+                    <button class="add-job">+ Add Job </button>
+                </div>
+
+
+                <div class="board-column autoapply">
+                    <div class="column-header">✨ Auto Apply <i class="fa-solid fa-plus add-job" style="cursor: pointer; padding: 0; color: black; background-color: none; border: none;"></i></div>
+
+                    <div class="dropdown-box">
+                        <input type="text" placeholder="Enter a company name..." />
+                        <div class="actions">
+                            <button class="continue">Continue</button>
+                            <button class="cancel">Cancel</button>
+                        </div>
+                    </div>
+
+                    <button class="add-job">+ Add Job </button>
+                </div>
+
+
+                <div class="board-column applied">
+                    <div class="column-header">📁 Applied <i class="fa-solid fa-plus add-job" style="cursor: pointer; padding: 0; color: black; background-color: none; border: none;"></i></div>
+                    <div class="dropdown-box">
+                        <input type="text" placeholder="Enter a company name..." />
+                        <div class="actions">
+                            <button class="continue">Continue</button>
+                            <button class="cancel">Cancel</button>
+                        </div>
+                    </div>
+                    <button class="add-job">+ Add Job</button>
+                </div>
+
+                <div class="board-column interview">
+                    <div class="column-header">🎤 Interview <i class="fa-solid fa-plus add-job" style="cursor: pointer; padding: 0; color: black; background-color: none; border: none;"></i></div>
+                    <div class="dropdown-box">
+                        <input type="text" placeholder="Enter a company name..." />
+                        <div class="actions">
+                            <button class="continue">Continue</button>
+                            <button class="cancel">Cancel</button>
+                        </div>
+                    </div>
+                    <button class="add-job">+ Add Job</button>
+                </div>
+
+                <div class="board-column offer">
+                    <div class="column-header">✅ Offer <i class="fa-solid fa-plus add-job" style="cursor: pointer; padding: 0; color: black; background-color: none; border: none;"></i></div>
+                    <div class="dropdown-box">
+                        <input type="text" placeholder="Enter a company name..." />
+                        <div class="actions">
+                            <button class="continue">Continue</button>
+                            <button class="cancel">Cancel</button>
+                        </div>
+                    </div>
+                    <button class="add-job">+ Add Job</button>
+                </div>
+
+                <div class="board-column reject">
+                    <div class="column-header">❌ Reject <i class="fa-solid fa-plus add-job" style="cursor: pointer; padding: 0; color: black; background-color: none; border: none;"></i></div>
+                    <div class="dropdown-box">
+                        <input type="text" placeholder="Enter a company name..." />
+                        <div class="actions">
+                            <button class="continue">Continue</button>
+                            <button class="cancel">Cancel</button>
+                        </div>
+                    </div>
+                    <button class="add-job">+ Add Job</button>
+                </div>
+
+            </div>
+
+
+            <script type="module" src="dashboard.js"></script>
 </body>
 
 </html>

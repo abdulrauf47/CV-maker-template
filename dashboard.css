@@ -105,6 +105,41 @@
   gap: 2px;
 }
 
+
+#contentLoader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #1e293b;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
 .sidebar .menu-item:hover {
   background: #e6ecff;
   border-radius: 8px;
@@ -164,7 +199,6 @@
 }
 
 .content {
-  margin-left: 250px;
   padding: 20px;
   flex: 1;
 }
@@ -173,10 +207,6 @@
   margin-left: 13px;
 }
 
-.content {
-  margin-left: 240px;
-  padding: 30px;
-}
 
 .dashboard-header {
   display: flex;
@@ -543,7 +573,6 @@ button strong {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin-left: 220px;
   margin-right: 15px;
 }
 
@@ -903,8 +932,6 @@ button strong {
   align-self: flex-start;
 }
 
-
-
 @media (max-width: 768px) {
   .emoji-box {
     background: #ffd966;
@@ -1102,7 +1129,7 @@ button strong {
   }
 
   .course-wrapper {
-    margin-left: 82px;
+    margin-left: 20px;
     margin-right: 10px;
     justify-content: center;
     justify-content: center;
