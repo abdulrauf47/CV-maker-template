@@ -111,12 +111,61 @@
         <div class="spinner"></div>
         <p>Loading, please wait...</p>
     </div>
+    <div id="realContent" class="realContent">
+        <div class="offer-container">
 
-    <div id="realContent">
-        
+            <div class="offer-left">
+                <h2>Step 1: Offer Details</h2>
+                <p class="subtitle">Please enter offered job title, location and company name</p>
+
+                <form id="interviewForm">
+                <label>Job Title</label>
+                <input type="text" placeholder="Software Developer" required>
+                <label>Company Name</label>
+                <input type="text" placeholder="Talent Inc" required>
+
+                <label>Location</label>
+                <input type="text" placeholder="City, state" required>
+
+                <div class="info-box">
+                    <i class="fa-solid fa-robot"></i>
+                    <p>Salary Analyzer currently only supports the United States right now. New countries will be added
+                        soon.</p>
+                </div>
+
+                <div class="footer-row">
+                    <div class="dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <button class="next-btn">Next</button>
+                </div>
+                </form>
+            </div>
+
+            <div class="offer-right">
+                <div class="preview-card">
+                    <h3 class="preview-title">Job Title</h3>
+                    <hr>
+
+                    <div class="preview-row">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>Company Name</span>
+                    </div>
+
+                    <div class="preview-row">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Location</span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
     </div>
 
-    <script src="dashboard.js"></script>
+    <script type="module" src="dashboard.js"></script>
 </body>
 
 </html>

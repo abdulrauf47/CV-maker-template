@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Distribution</title>
     <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="distribution.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 
@@ -116,10 +117,83 @@
     </div>
 
     <div id="realContent">
+        <div class="distribution-container">
+
+            <div class="left-panel">
+                <h2>Resume Distribution Questionnaire</h2>
+
+                <div class="resume-box">
+                    <p><strong>Untitled</strong></p>
+                    <small>Updated 13 Feb, 17:40</small>
+                    <div class="btn-group">
+                        <button class="btn-outline"><i class="fa-solid fa-eye" id="eye"></i>Preview</button>
+                        <button class="btn-outline">Change Resume</button>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    ℹ️ At the moment, Resume Distribution only works in the
+                    United States, United Kingdom, Canada, Australia, Netherlands and Germany.
+                </div>
+
+                <h3 style="margin-bottom: 12px;">Personal info</h3>
+                <p style="font-size: 14px; color: #828ba2;">We’ll use these details to match you with recruiters.</p>
+
+                <div class="form-grid">
+                    <div>
+                        <label>First Name</label>
+                        <input type="text" value="" placeholder="">
+                    </div>
+                    <div>
+                        <label>Last Name</label>
+                        <input type="text" value="" placeholder="">
+                    </div>
+                </div>
+
+                <label>Job Title</label>
+                <input type="text" value="" placeholder="Software Engineer">
+
+                <label>Current location</label>
+                <input type="text" placeholder="Enter your city, street, postal code">
+
+
+                <label>Email</label>
+                <input type="email" value="" placeholder="Enter you Email">
+
+
+                <h3 style="margin-bottom: 12px; margin-top: 12px;">Your job preferences</h3>
+                <p style="font-size: 14px; color: #828ba2;">Choose where you want to work, and what you want to do.</p>
+                <div class="form-grid">
+                <div>
+                        <label>Country</label>
+                        <input type="text" value="" placeholder="Country">
+                </div>
+                <div>
+                        <label>State</label>
+                        <input type="text" value="" placeholder="State">
+                </div>
+                </div>
+
+            </div>
+
+            <!-- <div class="right-panel">
+                <h2>These recruiters have jobs you want.</h2>
+
+                <ul>
+                    <li>✔ Recruiters come to us with ‘urgent’ roles</li>
+                    <li>✔ You check your email for interviews</li>
+                    <li>✔ We use your resume to match you with 50 a week</li>
+                    <li>✔ Access our private database of recruiters</li>
+                </ul>
+
+                <img src="Image/distribution for slider.png" class="resume-img" alt="">
+            </div> -->
+
+        </div>
 
     </div>
 
-    <script src="dashboard.js"></script>
+    <script type="module" src="dashboard.js"></script>
 </body>
 
 </html>

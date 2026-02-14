@@ -114,9 +114,33 @@
     </div>
 
     <div id="realContent">
+        <div class="interview-container">
+            <span class="badge">Sample interview</span>
+
+            <h1>Tell us about this dream job</h1>
+            <p>Enter the job title and company. We’ll use these to generate real questions from our database.</p>
+
+            <form id="interviewForm">
+
+            <label>Job Title</label>
+            <input type="text" placeholder="e.g. Software Developer" required>
+
+            <label>Desired Company (Optional)</label>
+            <input type="text" placeholder="e.g. Amazon, Google" required>
+
+            <div class="footer-row">
+                <div class="dots">
+                    <div class="dot1"></div>
+                    <div class="dot2"></div>
+                </div>
+
+                <button type="">Create Interview</button>
+            </div>
+        </form>
+        </div>
 
     </div>
-    <script src="dashboard.js"></script>
+    <script type="module" src="dashboard.js"></script>
 </body>
 
 </html>
